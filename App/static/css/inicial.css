@@ -1,0 +1,715 @@
+/* ==========================================================
+                        RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ==========================================================
+                    VARIÁVEIS
+========================================================== */
+
+:root{
+
+    /* Tema Claro */
+
+    --cor-fundo:#ffffff;
+    --cor-texto:#000000;
+    --cor-menu:#ffffff;
+    --cor-hover:#ececec;
+    --cor-header:linear-gradient(
+        90deg,
+        #044ceb,
+        #001f64
+    );
+
+    /* Sombra */
+    --sombra:0px 4px 10px rgba(0,0,0,.25);
+
+    /* Bordas */
+    --borda:18px;
+
+    /* Tempo das animações */
+    --transicao:.30s;
+
+}
+
+
+/* ==========================================================
+                    MODO ESCURO
+========================================================== */
+
+body.modo-escuro{
+
+    --cor-fundo:#1b1b1b;
+    --cor-texto:#ffffff;
+    --cor-menu:#2b2b2b;
+    --cor-hover:#444444;
+    --cor-header:linear-gradient(
+        90deg,
+        #0f172a,
+        #1e293b
+    );
+
+}
+
+
+/* ==========================================================
+                        BODY
+========================================================== */
+
+body{
+
+    background:var(--cor-fundo);
+    color:var(--cor-texto);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                    CABEÇALHO
+========================================================== */
+
+.cabecalho{
+
+    width:100%;
+    height:10dvh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    background-image:var(--cor-header);
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                LADO ESQUERDO DO HEADER
+========================================================== */
+
+.cabecalho-esquerda{
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+/* ==========================================================
+                LADO DIREITO DO HEADER
+========================================================== */
+
+.cabecalho-direita{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+
+/* ==========================================================
+                        BOTÕES
+========================================================== */
+
+button{
+
+    border:none;
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+                    BOTÃO MENU
+========================================================== */
+
+.btn-menu{
+
+    background:transparent;
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.btn-menu:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================================
+                    ÍCONE MENU
+========================================================== */
+
+.icone-menu{
+
+    width:50px;
+
+}
+
+
+/* ==========================================================
+                    BOTÃO TEMA
+========================================================== */
+
+.btn-tema{
+
+    background:transparent;
+    color:var(--cor-texto);
+    font-size:24px;
+    transition:var(--transicao);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.btn-tema:hover{
+
+    transform:rotate(20deg);
+
+}
+
+
+/* ==========================================================
+                        LOGO
+========================================================== */
+
+.logo{
+
+    height:60px;
+
+}
+
+
+/* ==========================================================
+                    MENU LATERAL
+========================================================== */
+
+.menu-lateral{
+
+    position:fixed;
+    top:10dvh;
+    left:-340px;
+    width:340px;
+    height:90dvh;
+    display:flex;
+    flex-direction:column;
+    padding-top:60px;
+    background:var(--cor-menu);
+    box-shadow:var(--sombra);
+    transition:var(--transicao);
+    z-index:999;
+
+}
+
+/* ==========================================================
+                    MENU PRINCIPAL
+========================================================== */
+
+#menuPrincipal{
+
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+
+}
+
+/* ==========================================================
+                TELA DE NOTIFICAÇÕES
+========================================================== */
+
+#telaNotificacoes{
+
+    display:none;
+    flex-direction:column;
+
+    width:100%;
+    height:100%;
+
+    background:var(--cor-menu);
+
+}
+
+#telaNotificacoes.ativo{
+
+    display:flex;
+
+}
+
+/* ==========================================================
+            CABEÇALHO DAS NOTIFICAÇÕES
+========================================================== */
+
+.cabecalho-notificacoes{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+
+    border-bottom:1px solid #dcdcdc;
+
+}
+
+.cabecalho-notificacoes h2{
+
+    font-size:32px;
+    font-weight:normal;
+
+}
+
+/* ==========================================================
+                BOTÃO FECHAR
+========================================================== */
+
+.btn-fechar-notificacao{
+
+    background:transparent;
+
+    font-size:28px;
+
+    color:var(--cor-texto);
+
+    transition:var(--transicao);
+
+}
+
+.btn-fechar-notificacao:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================================
+            LISTA DE NOTIFICAÇÕES
+========================================================== */
+
+.lista-notificacoes{
+
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+/* ==========================================================
+                CARD DA NOTIFICAÇÃO
+========================================================== */
+
+.card-notificacao{
+
+    background:var(--cor-fundo);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    box-shadow:var(--sombra);
+
+    transition:var(--transicao);
+
+}
+
+.card-notificacao:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.card-notificacao h3{
+
+    font-size:28px;
+    font-weight:normal;
+
+    margin-bottom:10px;
+
+}
+
+.card-notificacao p{
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    margin-bottom:12px;
+
+}
+
+.card-notificacao span{
+
+    display:block;
+
+    text-align:right;
+
+    color:gray;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+                MENU ABERTO
+========================================================== */
+
+.menu-lateral.ativo{
+
+    left:0;
+
+}
+
+
+/* ==========================================================
+                    LINKS DO MENU
+========================================================== */
+
+.menu-lateral a{
+
+    padding:18px 28px;
+    color:var(--cor-texto);
+    text-decoration:none;
+    font-size:27px;
+    transition:var(--transicao);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.menu-lateral a:hover{
+
+    background:var(--cor-hover);
+
+}
+
+/* ==========================================================
+                    CONTEÚDO PRINCIPAL
+========================================================== */
+
+.conteudo{
+
+    width:100%;
+    min-height:90dvh;
+    padding:40px 70px;
+    background:var(--cor-fundo);
+    color:var(--cor-texto);
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                TOPO DO CONTEÚDO
+========================================================== */
+
+.topo-conteudo{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+
+/* ---------------------------------------------------------- */
+
+.topo-conteudo h2{
+    font-size:45px;
+    font-weight:normal;
+    color:var(--cor-texto);
+}
+
+
+/* ==========================================================
+                    DROPDOWN
+========================================================== */
+
+.dropdown{
+
+    position:relative;
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.btn-dropdown{
+
+    background:transparent;
+    border:none;
+    color:var(--cor-texto);
+    font-size:25px;
+    cursor:pointer;
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.dropdown-conteudo{
+
+    display:none;
+    position:absolute;
+    right:0;
+    top:40px;
+    min-width:220px;
+    background:var(--cor-menu);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:var(--sombra);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.dropdown-conteudo a{
+
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:var(--cor-texto);
+    transition:var(--transicao);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.dropdown-conteudo a:hover{
+
+    background:var(--cor-hover);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.dropdown:hover .dropdown-conteudo{
+
+    display:block;
+
+}
+
+
+/* ==========================================================
+                    LISTA DAS TURMAS
+========================================================== */
+
+.lista-turmas{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+
+}
+
+
+/* ==========================================================
+                    CARD PADRÃO
+========================================================== */
+
+.card-turma{
+    display:flex;
+    width: 100%;
+    height:200px;
+    border-radius:var(--borda);
+    box-shadow:var(--sombra);
+    color:white;
+    padding:20px;
+    flex: 1;
+    gap: 50px;
+    flex-basis: 300px;
+    cursor:pointer;
+    flex-grow: 1;
+    transition:var(--transicao);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.card-turma:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/* ==========================================================
+                    TÍTULO DO CARD
+========================================================== */
+
+.card-turma h1{
+
+    font-size:30px;
+    font-weight:normal;
+    text-align:center;
+
+}
+
+
+/* ==========================================================
+                    CORES DOS CARDS
+========================================================== */
+
+.azul{
+
+    background-image:linear-gradient(
+        90deg,
+        #044ceb,
+        #001f64
+    );
+
+}
+
+
+.ciano{
+
+    background-image:linear-gradient(
+        90deg,
+        #0491eb,
+        #5bc8ff
+    );
+
+}
+
+
+.verde{
+
+    background-image:linear-gradient(
+        90deg,
+        #04ebcf,
+        #0435a2
+    );
+
+}
+
+
+.vermelho{
+
+    background-image:linear-gradient(
+        90deg,
+        #ff3131,
+        #9600ff
+    );
+
+}
+
+
+.roxo{
+
+    background-image:linear-gradient(
+        90deg,
+        #85a0ff,
+        #702b7b
+    );
+
+}
+
+
+.amarelo{
+
+    background-image:linear-gradient(
+        90deg,
+        #febc00,
+        #ad7200
+    );
+
+}
+
+
+/* ==========================================================
+                    RESPONSIVIDADE
+========================================================== */
+
+@media (max-width:1200px){
+
+    .lista-turmas{
+
+        justify-content:center;
+
+    }
+
+}
+
+
+@media (max-width:900px){
+
+    .cabecalho{
+
+        padding:0 15px;
+
+    }
+
+    .conteudo{
+
+        padding:30px;
+
+    }
+
+    .topo-conteudo{
+
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .menu-lateral{
+
+        width:260px;
+        left:-260px;
+
+    }
+
+    .menu-lateral.ativo{
+
+        left:0;
+
+    }
+
+    .card-turma{
+
+        width:100%;
+        height:170px;
+
+    }
+
+    .topo-conteudo h2{
+
+        font-size:34px;
+
+    }
+
+    .btn-dropdown{
+
+        font-size:20px;
+
+    }
+
+}
