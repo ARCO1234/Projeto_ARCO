@@ -80,7 +80,7 @@ body{
 
     display:flex;
     justify-content:center;
-    margin-bottom:-50px;
+    margin-bottom:-75px;
 
 }
 
@@ -157,7 +157,7 @@ body{
 
     margin-top:18px;
     text-align:center;
-
+    transform: translate(-68px, 1px);
 }
 
 
@@ -192,7 +192,7 @@ input{
     cursor:pointer;
     font-size:15px;
     transition:var(--transicao);
-
+    transform: translate(70px, -25px);
 }
 
 
@@ -226,7 +226,7 @@ input{
     background-image:var(--cor-botao-voltar);
     cursor:pointer;
     transition:var(--transicao);
-
+    font-weight: bold;
 }
 
 
@@ -240,7 +240,7 @@ input{
     background-image:var(--cor-botao);
     cursor:pointer;
     transition:var(--transicao);
-
+    font-weight: bold;
 }
 
 
