@@ -27,7 +27,7 @@ body{
     justify-content: center;
     align-items: center;
     background: transparent;
-
+     margin-bottom: 10px;
 }
 
 .logo{
@@ -44,14 +44,15 @@ body{
 
 .cxB{
 
-    width: 300px;
+    width: 250px;
     height: 350px;
     margin-top: -80px;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
     background: white;
     border-radius: 20px;
-
+    display: inline-block;
+    margin-bottom: 80px;
 }
 
 
@@ -62,14 +63,19 @@ body{
 h1{
 
     margin: -10px;
-    font-family: 'Michroma', sans-serif;
+    font-family: Uturna Round, Consolas, monospace;
+    font-size: 20px;
+    position: relative;
+    top: -12px;
 
 }
 
 .p1{
 
-    margin-top: 2px;
-    font-size: 25px;
+    margin-top: 3px;
+    font-size: 20px;
+    position: relative;
+    top: 15px;
 
 }
 
@@ -83,7 +89,7 @@ input{
     width: 98%;
     height: 40px;
     margin: 8px;
-    margin-top: 16px;
+    margin-top: 50px;
     padding: 3px;
     border: none;
     border-radius: 5px;
@@ -101,7 +107,7 @@ input{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 70px;
 
 }
 
@@ -113,13 +119,17 @@ input{
 #btnEntrar{
 
     width: 140px;
-    height: 40px;
+    height: 50px;
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    background-image: linear-gradient(blue, navy);
-
+    background-image: linear-gradient(#044ceb);
+    position: relative;
+    left: 5px;
+    top: -27px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #btnEntrar:hover{
@@ -136,9 +146,11 @@ input{
 .RecSenh{
 
     text-decoration: none;
-    color: blue;
+    color: rgb(79, 79, 249);
     font-size: 14px;
     font-weight: bold;
+    position: relative;
+    top: -30px;
 
 }
 
