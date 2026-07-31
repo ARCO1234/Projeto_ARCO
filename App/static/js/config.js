@@ -40,6 +40,7 @@ function voltarPagina(){
 function alternarTema(){
 
     document.body.classList.toggle("modo-escuro");
+    trocarIcones();
 
     if(document.body.classList.contains("modo-escuro")){
 
