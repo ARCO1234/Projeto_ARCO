@@ -1,0 +1,323 @@
+/* ==========================================================
+                        RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================================================
+                    VARIÁVEIS
+========================================================== */
+
+:root{
+
+    /* Tema Claro */
+
+    --cor-fundo:#ffffff;
+    --cor-texto:#000000;
+    --cor-menu:#ffffff;
+    --cor-hover:#ececec;
+    --cor-header:linear-gradient(
+        90deg,
+        #044ceb,
+        #001f64
+    );
+
+    /* Sombra */
+    --sombra:0px 4px 10px rgba(0,0,0,.25);
+
+    /* Bordas */
+    --borda:18px;
+
+    /* Tempo das animações */
+    --transicao:.30s;
+
+}
+
+
+/* ==========================================================
+                    MODO ESCURO
+========================================================== */
+
+body.modo-escuro{
+
+    --cor-fundo:#1b1b1b;
+    --cor-texto:#ffffff;
+    --cor-menu:#2b2b2b;
+    --cor-hover:#444444;
+    --cor-header:linear-gradient(
+        90deg,
+        #0f172a,
+        #1e293b
+    );
+
+}
+
+
+/* ==========================================================
+                        BODY
+========================================================== */
+
+body{
+
+    background:var(--cor-fundo);
+    color:var(--cor-texto);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                    CABEÇALHO
+========================================================== */
+
+.cabecalho{
+
+    width:100%;
+    height:10dvh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    background-image:var(--cor-header);
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                LADO ESQUERDO DO HEADER
+========================================================== */
+
+.cabecalho-esquerda{
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+/* ==========================================================
+                LADO DIREITO DO HEADER
+========================================================== */
+
+.cabecalho-direita{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+
+/* ====================================================================
+                               CABEÇALHO de baixo
+    ===================================================================== */
+
+.cabecalhoBaixo{
+
+    width:100%;
+    height:10dvh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:0 25px;
+    background-color: transparent;
+}
+
+.imgEQP3{
+    width: 40px;
+    height:40px;
+
+}
+
+.nomeAlunos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+.nomeFiltros{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.spanFiltro{
+    font-size: 25px;
+    margin-left: -20px;
+}
+.spanAluno{
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+
+
+.Pskiza{
+      width: 600px;
+      height: 30px;
+      margin-left: 10px;
+      border-radius: 200px;
+      border: none;
+      background-color:rgb(165, 165, 165) ;
+      
+}
+
+.imgSeta{ 
+    width:  70px;
+    height: 70px;
+    margin-left: 400px;
+    
+}
+
+
+
+/* ==========================================================
+                        BOTÕES
+========================================================== */
+
+button{
+
+    border:none;
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+                    BOTÃO VOLTAR
+========================================================== */
+
+.btn-voltar{
+
+    background:transparent;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    transition:var(--transicao);
+
+}
+
+
+.btn-voltar:hover{
+
+    transform:translateX(-5px);
+
+}
+
+/* ==========================================================
+                    BOTÃO TEMA
+========================================================== */
+
+.btn-tema{
+
+    background:transparent;
+    color:var(--cor-texto);
+    font-size:24px;
+    transition:var(--transicao);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.btn-tema:hover{
+
+    transform:rotate(20deg);
+
+}
+
+
+/* ==========================================================
+                        LOGO
+========================================================== */
+
+.logo{
+
+    height:60px;
+
+}
+
+
+
+/* ==========================================================
+                        GRID dos alunos
+========================================================== */
+
+
+.listaAlunos{
+    width: 90%;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.cardAluno{
+    width: 100%;
+    display: grid;
+
+    grid-template-columns:
+     60px 
+     1fr 
+     120px 
+     120px
+     ;
+    border: 3px solid #8b8b8b ;
+
+    border-radius: 10px;
+
+    padding: 10px 20px;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.fotoPerfil{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nomeDoAluno{
+
+    font-size: 20px;
+
+    font-weight: 500;
+}
+
+.turma{
+     text-align: center;
+     color: #665;
+     font-size: 24px;
+
+}
+
+
+
+.btnAdicionar{
+    width: 125px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #044ceb;
+    justify-self: end;
+    color: white;
+    font-size: 15px;
+    
+
+}
+
+

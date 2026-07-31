@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+
+
+<!-- ====================================================================
+                               CONFIGURAÇÕES
+    ===================================================================== -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tela da lista de alunos</title>
+    <link rel="stylesheet" href="../static/css/alunos.css">
+
+    <link rel="shortcut icon"
+          href="../static/img/capelo.png"
+          type="image/x-icon">
+
+</head>
+
+<body>
+    
+<!-- ====================================================================
+                               CABEÇALHO
+    ===================================================================== -->
+
+ <header class="cabecalho">
+
+      <!-- Lado esquerdo -->
+
+        <div class="cabecalho-esquerda">
+
+            <button
+                class="btn-voltar"
+                id="btnVoltar">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+        <!-- Lado direito -->
+
+        <div class="cabecalho-direita">
+
+            <button
+                class="btn-tema"
+                id="btnTema"
+                aria-label="Alternar tema">
+
+                ☀️
+
+            </button>
+
+            <img
+                src="../static/img/arco.png"
+                alt="Logo ARCO"
+                class="logo">
+
+        </div>
+</header>
+
+<!-- ====================================================================
+                               CABEÇALHO de baixo
+    ===================================================================== -->
+ 
+
+    <header class="cabecalhoBaixo">
+        
+        <div class="nomeAlunos"> 
+            <img class="imgEQP3" src="../static/icons/EQP3-P.png" alt="EQP3-P">
+            <span class="spanAluno">
+                Alunos
+            </span>
+            <input class="Pskiza" type="text" placeholder="🔍 Pesquisar">
+            
+        </div>
+        <div class="nomeFiltros">
+            <img class="imgSeta" src="../static/icons/SetaEsquerd-P.png" >
+            <span class="spanFiltro">
+                Filtros
+            </span>
+        </div>
+        
+    </header>
+
+    <!-- ==========================================================
+                            GRID dos alunos
+    ========================================================== -->
+
+    <main class="listaAlunos"> 
+        
+        <article class="cardAluno">
+            
+            <img  class="fotoPerfil" src="../static/icons/PerfilIndividual-P.png alt="imgperfil">
+
+            <span class="nomeDoAluno">
+                TomiAço Morrimento Bezerra da Silva
+            </span>
+            <span class="turma">
+                3º TDS A
+            </span>
+
+            <button class="btnAdicionar">
+                Adicionar
+            </button>
+
+
+
+        </article>
+    </main>
+
+
+
+    <!-- ==================================================
+                        JAVASCRIPT
+    =================================================== -->
+
+    <script src="../static/js/alunos.js"></script>
+
+    
+</body>
+</html>
