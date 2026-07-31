@@ -24,7 +24,7 @@ const inputPesquisa = document.getElementById("inputPesquisa");
 
 function voltarPagina(){
 
-    window.location.href = "../inicial/inicial.html";
+    window.location.href = "../templates/inicial.html";
 
 }
 
