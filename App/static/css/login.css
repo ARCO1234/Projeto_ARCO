@@ -1,169 +1,102 @@
 body{
-    background-image: linear-gradient(90deg, #044ceb, #001f64);
+   background-image: linear-gradient(90deg, #044ceb, #001f64);
 }
 
-/* ==========================================================
-                    CONTAINER
-========================================================== */
-
 .containerkxa{
-
     height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+   
 }
-
-
-/* ==========================================================
-                        LOGO
-========================================================== */
 
 .divlogo{
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: transparent;
+    background-color: transparent;
 
 }
 
-.logo{
-
-    width: 550px;
-    height: 275px;
-
-}
-
-
-/* ==========================================================
-                    CAIXA LOGIN
-========================================================== */
-
-.cxB{
-
-    width: 300px;
-    height: 350px;
-    margin-top: -80px;
-    padding: 30px;
-    text-align: center;
+ .cxB{ 
+    
     background: white;
+    height: 350px;
+    width: 300px;
+    padding: 30px;
+    margin-top: -80px;
+    text-align: center;
     border-radius: 20px;
-
+   
 }
 
 
-/* ==========================================================
-                        TEXTOS
-========================================================== */
 
 h1{
-
     margin: -10px;
     font-family: 'Michroma', sans-serif;
 
 }
 
 .p1{
-
-    margin-top: 2px;
     font-size: 25px;
+    margin-top:2px;
 
 }
-
-
-/* ==========================================================
-                        CAMPOS
-========================================================== */
 
 input{
-
     width: 98%;
     height: 40px;
-    margin: 8px;
-    margin-top: 16px;
     padding: 3px;
     border: none;
+    margin: 8px;
+    margin-top: 16px;
+    background-color: #d2d2d2;
     border-radius: 5px;
-    background: #d2d2d2;
-
 }
 
-
-/* ==========================================================
-                    LINHA DOS BOTÕES
-========================================================== */
-
-.botoeslinha{
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-
-}
-
-
-/* ==========================================================
-                    BOTÃO ENTRAR
-========================================================== */
-
-#btnEntrar{
-
-    width: 140px;
+button {
+    width: 100%;
     height: 40px;
-    border: none;
+    padding: 5px;
+    margin-top: 40px;
     border-radius: 5px;
     color: white;
-    cursor: pointer;
-    background-image: linear-gradient(blue, navy);
-
+    
+    background-image: linear-gradient(blue,navy);
 }
 
-#btnEntrar:hover{
-
-    opacity: .9;
-
-}
-
-
-/* ==========================================================
-                ESQUECEU A SENHA
-========================================================== */
-
-.RecSenh{
-
-    text-decoration: none;
-    color: blue;
-    font-size: 14px;
-    font-weight: bold;
-
-}
-
-.RecSenh:hover{
-
-    text-decoration: underline;
-
-}
-
-
-/* ==========================================================
-                    OUTROS
-========================================================== */
-
-.cadastro{
-
+.cadastro {
     margin-top: 10px;
     background: white;
     color: black;
-
+}
+.RecSenh {
+    margin-top: 40px;
+    border: none;
+    text-align: end;
+    background: white;
+    color: blue;
 }
 
-.ou{
+.botoeslinha{
+    display: flex;
+    flex-direction: row;
+    
+}
 
-    margin: 2px;
+.ou {
     padding: 2px;
-
+    margin:2px;
 }
+
+.logo{
+    width: 550px;
+    height: 275px;
+  
+}
+
+/* ======================================================================================================================== */

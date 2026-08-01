@@ -2,62 +2,125 @@
                     CAPTURA DOS ELEMENTOS
 ========================================================== */
 
+const API_URL = "http://127.0.0.1:5000";
+
+const etapaEmail = document.getElementById("etapaEmail");
+const etapaCodigo = document.getElementById("etapaCodigo");
+
+const campoEmail = document.getElementById("email");
 const campoCodigo = document.getElementById("codigo");
+const emailMostrado = document.getElementById("emailMostrado");
+
+const btnVoltarLogin = document.getElementById("btnVoltarLogin");
+const btnEnviarEmail = document.getElementById("btnEnviarEmail");
 
 const btnVoltar = document.getElementById("btnVoltar");
-
 const btnProximo = document.getElementById("btnProximo");
-
 const btnReenviar = document.getElementById("btnReenviar");
 
 
 /* ==========================================================
-                    VOLTAR PARA O LOGIN
+                    ETAPA 1 - ENVIAR E-MAIL
 ========================================================== */
 
+async function enviarEmail() {
+
+    const email = campoEmail.value.trim();
+
+    if (email === "") {
+        alert("Digite seu e-mail.");
+        campoEmail.focus();
+        return;
+    }
+
+    btnEnviarEmail.disabled = true;
+
+    try {
+        const resposta = await fetch(`${API_URL}/recuperar-senha`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+            // Guarda o e-mail para usar nas próximas telas (verificação e redefinição)
+            sessionStorage.setItem("emailRecuperacao", email);
+
+            const mascarado = mascararEmail(email);
+            emailMostrado.textContent = mascarado;
+
+            etapaEmail.style.display = "none";
+            etapaCodigo.style.display = "block";
+        } else {
+            alert(dados.mensagem || "Não foi possível enviar o código.");
+        }
+
+    } catch (erro) {
+        console.error("Erro ao enviar e-mail:", erro);
+        alert("Não foi possível conectar ao servidor.");
+    } finally {
+        btnEnviarEmail.disabled = false;
+    }
+}
+
+
 /*
-    Retorna para a tela de login.
+    Mostra só parte do e-mail, tipo: he****@gmail.com
 */
-
-function voltarLogin() {
-
-    window.location.href = "../login/login.html";
-
+function mascararEmail(email) {
+    const [usuario, dominio] = email.split("@");
+    if (!dominio) return email;
+    const visiveis = usuario.slice(0, 2);
+    return `${visiveis}${"*".repeat(Math.max(usuario.length - 2, 3))}@${dominio}`;
 }
 
 
 /* ==========================================================
-                    VALIDAR CÓDIGO
+                ETAPA 2 - VALIDAR CÓDIGO
 ========================================================== */
 
-/*
-    Verifica se o usuário digitou
-    um código antes de prosseguir.
-*/
-
-function validarCodigo() {
+async function validarCodigo() {
 
     const codigo = campoCodigo.value.trim();
+    const email = sessionStorage.getItem("emailRecuperacao");
 
     if (codigo === "") {
-
         alert("Digite o código de verificação.");
-
         campoCodigo.focus();
-
         return;
-
     }
 
-    /*
-        Futuramente aqui será feita
-        a validação do código enviado
-        para o e-mail.
-    */
+    if (!email) {
+        alert("Sessão expirada, informe o e-mail novamente.");
+        voltarParaEmail();
+        return;
+    }
 
-    alert("Código validado com sucesso!");
+    btnProximo.disabled = true;
 
-    window.location.href = "../nv.senha/nvsenha.html";
+    try {
+        const resposta = await fetch(`${API_URL}/verificar-codigo`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, codigo })
+        });
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+            window.location.href = "/nvsenha-page";
+        } else {
+            alert(dados.mensagem || "Código inválido.");
+        }
+
+    } catch (erro) {
+        console.error("Erro ao validar código:", erro);
+        alert("Não foi possível conectar ao servidor.");
+    } finally {
+        btnProximo.disabled = false;
+    }
 }
 
 
@@ -65,65 +128,65 @@ function validarCodigo() {
                 REENVIAR CÓDIGO
 ========================================================== */
 
-/*
-    Simula o reenvio do código.
-*/
+async function reenviarCodigo() {
 
-function reenviarCodigo() {
+    const email = sessionStorage.getItem("emailRecuperacao");
 
-    alert("Um novo código foi enviado para seu e-mail.");
+    if (!email) {
+        alert("Sessão expirada, informe o e-mail novamente.");
+        voltarParaEmail();
+        return;
+    }
 
+    try {
+        const resposta = await fetch(`${API_URL}/recuperar-senha`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+
+        const dados = await resposta.json();
+        alert(dados.mensagem || "Novo código enviado.");
+
+    } catch (erro) {
+        console.error("Erro ao reenviar código:", erro);
+        alert("Não foi possível conectar ao servidor.");
+    }
 }
 
 
 /* ==========================================================
-                    EVENTOS
+                    NAVEGAÇÃO
 ========================================================== */
 
-/*
-    Clique no botão Voltar.
-*/
+function voltarParaEmail() {
+    etapaCodigo.style.display = "none";
+    etapaEmail.style.display = "block";
+}
 
-btnVoltar.addEventListener("click", voltarLogin);
+function voltarLogin() {
+    window.location.href = "/login-page";
+}
 
 
-/*
-    Clique no botão Próximo.
-*/
+/* ==========================================================
+                        EVENTOS
+========================================================== */
 
+btnEnviarEmail.addEventListener("click", enviarEmail);
+btnVoltarLogin.addEventListener("click", voltarLogin);
+
+btnVoltar.addEventListener("click", voltarParaEmail);
 btnProximo.addEventListener("click", validarCodigo);
-
-
-/*
-    Clique no botão Reenviar.
-*/
-
 btnReenviar.addEventListener("click", reenviarCodigo);
 
-
-/* ==========================================================
-                TECLA ENTER
-========================================================== */
-
-/*
-    Pressionar Enter executa
-    a mesma ação do botão Próximo.
-*/
-
-campoCodigo.addEventListener("keypress", function(event){
-
-    if(event.key === "Enter"){
-
-        validarCodigo();
-        
-
-    }
-
+campoEmail.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") enviarEmail();
 });
 
+campoCodigo.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") validarCodigo();
+});
 
-/* ==========================================================
-                INICIALIZAÇÃO
-========================================================== */
 
 console.log("Tela de recuperação de senha carregada com sucesso.");

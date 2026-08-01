@@ -24,6 +24,127 @@ function alternarMenu() {
 
 }
 
+/* ==========================================================
+                    AUTENTICAÇÃO / API
+========================================================== */
+
+const API_URL = "http://127.0.0.1:5000";
+
+// Mapa simples de cores para ciclar nos cards (ajuste como preferir)
+const CORES = ["azul", "ciano", "verde", "vermelho", "roxo", "amarelo"];
+
+async function buscarTurmas() {
+    const token = localStorage.getItem("access_token");
+
+    if (!token) {
+        window.location.href = "/login-page";
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/turmas`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (resposta.status === 401) {
+            // Token expirado/inválido -> tenta renovar com o refresh token
+            const renovou = await renovarToken();
+            if (renovou) {
+                return buscarTurmas();
+            }
+            window.location.href = "/login-page";
+            return;
+        }
+
+        const turmas = await resposta.json();
+        renderizarTurmas(turmas);
+
+    } catch (erro) {
+        console.error("Erro ao buscar turmas:", erro);
+    }
+}
+async function buscarTurmas() {
+    const token = localStorage.getItem("access_token");
+
+    if (!token) {
+        window.location.href = "/login-page";
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/turmas`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (resposta.status === 401) {
+            // Token expirado/inválido -> tenta renovar com o refresh token
+            const renovou = await renovarToken();
+            if (renovou) {
+                return buscarTurmas();
+            }
+            window.location.href = "/login-page";
+            return;
+        }
+
+        const turmas = await resposta.json();
+        renderizarTurmas(turmas);
+
+    } catch (erro) {
+        console.error("Erro ao buscar turmas:", erro);
+    }
+}
+
+async function renovarToken() {
+    const refresh = localStorage.getItem("refresh_token");
+    if (!refresh) return false;
+
+    try {
+        const resposta = await fetch(`${API_URL}/refresh`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${refresh}`
+            }
+        });
+
+        if (!resposta.ok) return false;
+
+        const dados = await resposta.json();
+        localStorage.setItem("access_token", dados.access_token);
+        return true;
+
+    } catch (erro) {
+        console.error("Erro ao renovar token:", erro);
+        return false;
+    }
+}
+
+function renderizarTurmas(turmas) {
+    listaTurmas.innerHTML = "";
+
+    turmas.forEach(function (turma, indice) {
+        const cor = CORES[indice % CORES.length];
+
+        const card = document.createElement("article");
+        card.className = `card-turma ${cor}`;
+
+        const titulo = document.createElement("h1");
+        // AJUSTE "nome" para o nome real da coluna na sua tabela "turma"
+        titulo.textContent = `${turma.Serie} ${turma.Curso}`;
+
+        card.appendChild(titulo);
+        card.addEventListener("click", function () {
+            alert("Você abriu: " + titulo.textContent.trim());
+        });
+
+        listaTurmas.appendChild(card);
+    });
+}
 
 /* ==========================================================
                     MODO ESCURO
@@ -59,6 +180,24 @@ function alternarTema() {
 */
 
 btnMenu.addEventListener("click", alternarMenu);
+
+
+/*
+    Botão do tema.
+*/
+
+btnTema.addEventListener("click", alternarTema);
+
+
+document.addEventListener("click", function (event) {
+    const clicouNoMenu = menuLateral.contains(event.target);
+    const clicouNoBotao = btnMenu.contains(event.target);
+
+    if (!clicouNoMenu && !clicouNoBotao) {
+        menuLateral.classList.remove("ativo");
+    }
+});
+
 
 /* ==========================================================
                     NOTIFICAÇÕES
@@ -159,4 +298,5 @@ cards.forEach(function (card) {
                 INICIALIZAÇÃO
 ========================================================== */
 
+buscarTurmas();
 console.log("Página Inicial carregada com sucesso.");

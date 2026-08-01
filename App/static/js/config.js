@@ -4,13 +4,11 @@
 
 const btnVoltar = document.getElementById("btnVoltar");
 const btnTema = document.getElementById("btnTema");
-
 const btnConta = document.getElementById("btnConta");
 const btnPrivacidade = document.getElementById("btnPrivacidade");
 const btnAparencia = document.getElementById("btnAparencia");
 const btnNotificacoes = document.getElementById("btnNotificacoes");
 const btnAjuda = document.getElementById("btnAjuda");
-
 const inputPesquisa = document.getElementById("inputPesquisa");
 
 
@@ -24,8 +22,8 @@ const inputPesquisa = document.getElementById("inputPesquisa");
 
 function voltarPagina(){
 
-    window.location.href = "../inicial/inicial.html";
-
+    window.location.href = "/Inicial-page";
+    
 }
 
 
@@ -179,5 +177,4 @@ btnAjuda.addEventListener("click", function(event){
 ========================================================== */
 
 carregarTema();
-
 console.log("Tela de Configurações carregada com sucesso.");
