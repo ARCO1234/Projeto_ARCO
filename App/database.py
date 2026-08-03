@@ -8,5 +8,3 @@ def conectar():
         database="Project"
     )
     return conexao
-
-# .\venv\Scripts\activate

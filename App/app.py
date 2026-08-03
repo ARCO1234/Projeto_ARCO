@@ -45,33 +45,34 @@ def index():
 
 @app.route('/login-page')
 def login_page():
-    return render_template('login/login.html')
+    return render_template('login.html')
 
 
 @app.route('/Inicial-page')
 def inicial_page():
-    return render_template('Inicial/inicial.html')
+    return render_template('inicial.html')
 
 
 @app.route('/config-page')
 def config_page():
-    return render_template('config/config.html')
+    return render_template('config.html')
 
 
 @app.route('/recsenha-page')
 def recsenha_page():
-    return render_template('recuperação_senha/recsenha.html')
+    return render_template('recsenha.html')
 
 
 @app.route('/nvsenha-page')
 def nvsenha_page():
-    return render_template('nova_senha/nvsenha.html')
+    return render_template('nvsenha.html')
 
 
 @app.route('/boasenha-page')
 def boasenha_page():
-    return render_template('senha_recuperada/boasenha.html')
+    return render_template('boasenha.html')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
