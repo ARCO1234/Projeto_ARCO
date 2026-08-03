@@ -6,3 +6,4 @@ from routes.horario import horario_bp
 from routes.pergunta import pergunta_bp
 from routes.resposta import resposta_bp
 from routes.recuperacao import recuperacao_bp
+ 
