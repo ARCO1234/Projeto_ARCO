@@ -1,4 +1,7 @@
-@face-family Uturna Round, Consolas, monospace;
+@font-face{
+    font-family: 'Uturna Round Demo Bold';
+    src: url(Projeto_ARCO/App/static/fonts/UturnaRoundDemoBoldtalic-) format('truetype');
+}
 
 body{
     background-image: linear-gradient(90deg, #044ceb, #001f64);
@@ -65,10 +68,10 @@ body{
 h1{
 
     margin: -10px;
-    font-family: Uturna Round, Consolas, monospace;
     font-size: 20px;
     position: relative;
     top: -12px;
+    font-family: 'Uturna Round Demo Extra Bold', sans-serif;
 
 }
 
