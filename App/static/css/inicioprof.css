@@ -1,133 +1,179 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #ffffff;
+body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:#f7f7f7;
 }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
-/* ===== Faixa azul do topo ===== */
-.faixazul {
-    width: 100%;
-    height: 110px;
-    background: linear-gradient(90deg, #0a1a5c 0%, #1e4fd8 100%);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 40px;
+/*================== TOPO ==================*/
+
+.faixazul{
+    width:100%;
+    height:70px;
+    background:linear-gradient(90deg,#0b1d6b,#1d4ed8);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
 }
 
-.faixazul .logo {
-    height: 100%;
+.logo{
+    height:55px;
 }
 
-/* ===== Título "Minhas turmas" ===== */
-.titulo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 30px 40px 10px;
+.funcionalidades{
+    display:flex;
+    align-items:center;
+    gap:28px;
 }
 
-.titulo h1 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #1a1a2e;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.funcionalidades a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:.2s;
+    padding:6px 12px;
+    border-radius:20px;
 }
 
-/* ícone opcional antes do título, se usar <i> ou <img> */
-.titulo .icone-titulo {
-    width: 26px;
-    height: 26px;
+.funcionalidades a:hover{
+    background:rgba(255,255,255,0.15);
 }
 
-/* ===== Grade de cards ===== */
-.salas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 10px 40px 40px;
+.funcionalidades a img{
+    width:20px;
+    height:20px;
+    filter:brightness(0) invert(1); /* deixa os ícones brancos */
 }
 
-/* ===== Card ===== */
-.card {
-    width: 260px;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+/*================== CONTEÚDO ==================*/
+
+.conteudo{
+    width:100%;
+    padding:35px 45px;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/*================== TÍTULO ==================*/
+
+.titulo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:35px;
 }
 
-.card-header {
-    padding: 16px 18px;
-    color: #ffffff;
+.grupoP{
+    width:48px;
 }
 
-.card-header h1 {
-    font-size: 20px;
-    font-weight: 700;
+.titulo h1{
+    font-size:32px;
+    font-weight:600;
+    text-transform:uppercase;
+    color:#1a1a1a;
+    letter-spacing:0.5px;
 }
 
-.card-header h2 {
-    font-size: 14px;
-    font-weight: 400;
-    opacity: 0.95;
-    margin-top: 2px;
+/*================== GRID DOS CARDS ==================*/
+
+.salas{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:28px;
 }
 
-.card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    padding: 12px 18px;
+/*================== CARD ==================*/
+
+.card{
+    background:#fff;
+    border:1px solid #e0e0e0;
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
-.icon-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    display: block;
-    cursor: pointer;
-    line-height: 0;
-    color: #1a1a2e;
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
 }
 
-.icon-btn img,
-.icon-btn svg {
-    width: 22px;
-    height: 22px;
-    display: block;
-    pointer-events: none;
+.card-header{
+    height:110px;
+    padding:20px 22px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
-/* ===== Gradientes alternados (3 cores, repete a cada 3 cards) ===== */
-.card:nth-child(3n+1) .card-header {
-    background: linear-gradient(135deg, #e8114b 0%, #a318d9 100%);
+.card-header h1{
+    font-size:24px;
+    font-weight:700;
+    margin:0;
 }
 
-.card:nth-child(3n+2) .card-header {
-    background: linear-gradient(135deg, #7b8cf0 0%, #6a3fc7 100%);
+.card-header h2{
+    margin-top:6px;
+    font-size:17px;
+    font-weight:400;
+    opacity:0.95;
 }
 
-.card:nth-child(3n+3) .card-header {
-    background: linear-gradient(135deg, #f5a623 0%, #b8720a 100%);
+.card-footer{
+    height:70px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:16px;
+    padding:0 22px;
+    background:#fff;
+}
+
+.icon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    border-radius:8px;
+    transition:.2s;
+}
+
+.icon-btn:hover{
+    background:#f0f0f0;
+}
+
+.icon-btn img{
+    width:28px;
+    height:28px;
+}
+
+/*================== CORES DOS CARDS ==================*/
+
+.card:nth-child(3n+1) .card-header{
+    background:linear-gradient(90deg,#ff3048,#a100ff);
+}
+
+.card:nth-child(3n+2) .card-header{
+    background:linear-gradient(90deg,#7d90f8,#73358d);
+}
+
+.card:nth-child(3n+3) .card-header{
+    background:linear-gradient(90deg,#ffb400,#b97900);
 }
