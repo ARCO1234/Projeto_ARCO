@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.fundologin {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1560e8 0%, #0a1f6e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divilogo {
+    width: 100%;
+    height: 180px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divilogo .logo {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+.divimeio {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.caixabranca {
+    width: 420px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px 45px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.caixabranca h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.caixabranca h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.4;
+}
+
+.caixabranca p {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.caixabranca label {
+    align-self: flex-start;
+    font-weight: 700;
+    font-size: 14px;
+    color: #111;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.caixabranca {
+    width: 420px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px 45px 45px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.entradacodigo {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.esqueci {
+    font-size: 13px;
+    color: #1560e8;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.esqueci:hover {
+    text-decoration: underline;
+}
+
+/* Container dos botões lado a lado */
+.caixabranca {
+    position: relative;
+}
+
+.botaoentrar,
+.botaovoltar {
+    width: 45%;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s ease;
+}
+
+.botaoentrar {
+    background: linear-gradient(180deg, #1560e8 0%, #0a1f6e 100%);
+}
+
+.botaovoltar {
+    background:#6b6b6b;
+}
+
+.botaoentrar:hover,
+.botaovoltar:hover {
+    transform: translateY(-2px);
+}
+
+.divibaixo {
+    width: 100%;
+    height: 60px;
+}
+
+.botoes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.linha-reenvio {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.linha-reenvio p {
+    margin-bottom: 0;
+}
