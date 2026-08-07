@@ -45,8 +45,8 @@
     
     
     color: #ffffff;
-
-
+    
+    
 }
 
 
@@ -57,27 +57,28 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
+
 button{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-
-    width: 160px;
+    
+    width: 200px;
     height: 50px;
-
+    
     color: #ffffff;
     font-size: 20px;
     
     border:2px solid transparent ;
     border-radius: 12px;
     background-color: transparent;
-
+    
     cursor: pointer;
-
+    
     transition: 
-        trasnform 0.2s ease,
-        border-color 0.2 ease,
+    trasnform 0.2s ease,
+    border-color 0.2 ease,
         bacground-color 0.2 ease,
         box-shadow 0.2 ease;
 }
@@ -86,7 +87,7 @@ button:hover{
     border-color: (255,255,255,0.8);
     background-color: (255,255,255,0.08);
     box-shadow: 0 8px 18px rgba0(0,0,0,0.18);
-
+    
 }
 
 button.ativo{
