@@ -1,0 +1,70 @@
+<div class="topo-area-config">
+    <input type="text" class="busca-config" placeholder="Pesquisar">
+</div>
+
+<h3 class="subtitulo-config">Mais pesquisados</h3>
+
+
+<!-- =============================================
+            SEÇÃO "MINHAS CONTAS"
+============================================== -->
+
+<div class="cabecalho-secao-contas">
+    <h3 class="subtitulo-config">Minhas contas</h3>
+    <button class="btn-adicionar-conta">
+        <svg viewBox="0 0 24 24" class="icone-btn-adicionar" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Adicionar conta
+    </button>
+</div>
+
+<div class="card-conta">
+
+    <div class="linha-superior-conta">
+
+        <div class="avatar-conta">
+            <!-- back-end: trocar por <img src="{{ conta.foto_url }}"> -->
+            <svg viewBox="0 0 24 24" class="icone-avatar" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <div class="info-conta">
+
+            <h4 class="nome-conta">Billie Jean</h4>
+            <!-- back-end: {{ conta.nome }} -->
+
+            <p class="email-conta">BillieJean@naoeminha.namorada</p>
+            <!-- back-end: {{ conta.email }} -->
+
+            <span class="cargo-conta">Professor</span>
+            <!-- back-end: {{ conta.cargo }} -->
+
+        </div>
+
+    </div>
+
+    <div class="linha-inferior-conta">
+
+        <a href="#" class="link-info-conta">
+            <svg viewBox="0 0 24 24" class="icone-link-info" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Informações da conta
+        </a>
+
+        <button class="btn-sair-conta" title="Sair">
+            <svg viewBox="0 0 24 24" class="icone-sair" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+        </button>
+
+    </div>
+
+</div>
