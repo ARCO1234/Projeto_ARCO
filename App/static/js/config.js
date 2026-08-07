@@ -1,55 +1,65 @@
-// Cada chave corresponde ao "data-secao" do botão,
-// e aponta pra uma ROTA do Flask (não um arquivo estático).
-// Essas rotas ainda não existem no back-end — quando existirem,
-// devem devolver o HTML já processado via render_template().
-// Até lá, o fetch vai falhar com 404 (é esperado).
-const arquivosSecao = {
-    conta:        '/configuracoes/conta',
-    privacidade:  '/configuracoes/privacidade',
-    sobre:        '/configuracoes/sobre',
-    dados:        '/configuracoes/dados',
-    formularios:  '/configuracoes/formularios'
-};
+/* ==========================================================
+                    CARREGAR SEÇÕES
+========================================================== */
 
-// Busca o HTML da rota da seção e injeta dentro da área de conteúdo
-function carregarSecao(nome) {
+const areaConfig = document.getElementById("area-config");
+const botoes = document.querySelectorAll(".item-config");
 
-    const arquivo = arquivosSecao[nome];
 
-    if (!arquivo) {
-        console.error('Seção não encontrada:', nome);
-        return;
+/* ==========================================================
+        FUNÇÃO QUE CARREGA O HTML DA SEÇÃO
+========================================================== */
+
+async function carregarSecao(nomeArquivo){
+
+    try{
+
+        const resposta = await fetch(`../templates/${nomeArquivo}.html`);
+
+        const html = await resposta.text();
+
+        areaConfig.innerHTML = html;
+
+    }catch(erro){
+
+        areaConfig.innerHTML = "<p>Erro ao carregar a seção.</p>";
+
+        console.error(erro);
     }
-
-    fetch(arquivo)
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById('area-config').innerHTML = html;
-        })
-        .catch(err => console.error('Erro ao carregar seção:', err));
-
 }
 
-// Delegação de evento: escuta clique em qualquer botão do menu-config
-document.addEventListener('click', function (e) {
 
-    const botao = e.target.closest('.item-config');
+/* ==========================================================
+        CARREGA A TELA DE CONTA AO ABRIR A PÁGINA
+========================================================== */
 
-    if (botao) {
+carregarSecao("contaConfig");
 
-        // tira "ativo" de todos os botões...
-        document.querySelectorAll('.item-config').forEach(b => {
-            b.classList.remove('ativo');
-        });
 
-        // ...e coloca só no que foi clicado
-        botao.classList.add('ativo');
+/* ==========================================================
+        TROCA DE SEÇÕES AO CLICAR NO MENU
+========================================================== */
 
-        carregarSecao(botao.dataset.secao);
+botoes.forEach(botao => {
 
-    }
+    botao.addEventListener("click", () => {
+
+        botoes.forEach(b => b.classList.remove("ativo"));
+
+        botao.classList.add("ativo");
+
+        const secao = botao.dataset.secao;
+
+        if(secao === "conta"){
+            carregarSecao("contaConfig");
+        }
+
+        // depois você pode adicionar outras telas aqui
+        // ex:
+        // if(secao === "privacidade"){
+        //     carregarSecao("privacidade");
+        // }
+
+    });
 
 });
-
-// Assim que a página abre, já carrega a primeira seção
-carregarSecao('conta');
