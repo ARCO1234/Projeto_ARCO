@@ -41,7 +41,7 @@
     align-items: end;
 
     padding-left: 80px;
-    gap: 50px;
+    gap: 20px;
     
     
     color: #ffffff;
@@ -69,12 +69,40 @@ button{
     color: #ffffff;
     font-size: 20px;
     
-    border:none ;
+    border:2px solid transparent ;
+    border-radius: 12px;
     background-color: transparent;
+
+    cursor: pointer;
+
+    transition: 
+        trasnform 0.2s ease,
+        border-color 0.2 ease,
+        bacground-color 0.2 ease,
+        box-shadow 0.2 ease;
+}
+button:hover{
+    transform: translateY(-6px);
+    border-color: (255,255,255,0.8);
+    background-color: (255,255,255,0.08);
+    box-shadow: 0 8px 18px rgba0(0,0,0,0.18);
+
+}
+
+button.ativo{
+    transform: translateY(-6px);
+    border-color: #ffffff;
+    background-color: (255,255,255,0.15);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
 }
 
 .logobtns{
     width: 40px;
     height: 40px;
    
+}
+
+.logobtns2{
+    width: 50px;
+    height: 50px;
 }
