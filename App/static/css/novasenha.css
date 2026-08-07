@@ -41,7 +41,7 @@ body {
 }
 
 .caixabranca {
-    width: 420px;
+     width: 420px;
     background-color: #ffffff;
     border-radius: 20px;
     padding: 35px 45px 45px;
@@ -76,7 +76,7 @@ body {
 .novasenha,
 .entradasenha {
     width: 100%;
-    height: 42px;
+    height: 40px;
     border: none;
     border-radius: 8px;
     background-color: #d9d9d9;
@@ -143,11 +143,11 @@ body {
 }
 
 .botaovoltar {
-    background: linear-gradient(180deg, #d9d9d9 0%, #6b6b6b 100%);
+    background: linear-gradient(180deg, #5c5959 0%, #5b5959 100%);
 }
 
 .botaoproximo {
-    background: linear-gradient(180deg, #1560e8 0%, #0a1f6e 100%);
+    background: linear-gradient(180deg, #1560e8 0%, #1560e8 100%);
 }
 
 .botaovoltar:hover,
