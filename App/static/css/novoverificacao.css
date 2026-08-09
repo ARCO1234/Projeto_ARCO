@@ -30,8 +30,9 @@ body {
 
 .divilogo .logo {
     width: 100%;
-    max-width: 350px;
+    max-width: 500px;
     height: auto;
+    transform: translateY(30px);
 }
 
 .divimeio {
@@ -41,14 +42,14 @@ body {
 }
 
 .caixabranca {
-     width: 420px;
+    width: 420px;
     background-color: #ffffff;
     border-radius: 20px;
     padding: 35px 45px 45px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    justify-content: center;
 }
 
 .caixabranca h1 {
@@ -70,7 +71,7 @@ body {
 .caixabranca p {
     text-align: center;
     font-size: 14px;
-    color: #333;
+    color: #5c5959;
     margin-bottom: 5px;
 }
 
@@ -106,11 +107,13 @@ body {
 }
 
 .esqueci {
-    font-size: 13px;
+    margin-top: -20px;
+    font-size: 18px;
     color: #1560e8;
     text-decoration: none;
     cursor: pointer;
     margin-bottom: 40px;
+    transform: translate(-15px, 0px);
 }
 
 .esqueci:hover {
@@ -169,5 +172,8 @@ body {
 }
 
 .linha-reenvio p {
+    margin-top: -20px;
+    font-size: 18px;
+    transform: translate(-15px, 0px);
     margin-bottom: 0;
 }
