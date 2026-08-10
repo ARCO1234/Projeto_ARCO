@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.fundologin {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1560e8 0%, #0a1f6e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divilogo {
+    width: 100%;
+    height: 180px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    transform: translateY(25px);
+}
+
+.divimeio {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.caixabranca {
+     width: 420px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px 45px 45px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.caixabranca h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.caixabranca h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.caixabranca label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.novasenha,
+.entradasenha {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.titulo-requisitos {
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.lista-requisitos {
+    list-style: none;
+    columns: 2;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.lista-requisitos li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.lista-requisitos li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+.lista-requisitos li.valido {
+    color: #1e9e3e;
+    font-weight: 600;
+}
+
+.lista-requisitos li.valido::before {
+    content: "✓";
+    color: #1e9e3e;
+}
+
+.botoes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botaovoltar,
+.botaoproximo {
+    width: 45%;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s ease;
+}
+
+.botaovoltar {
+    background: linear-gradient(180deg, #5c5959 0%, #5b5959 100%);
+}
+
+.botaoproximo {
+    background: linear-gradient(180deg, #1560e8 0%, #1560e8 100%);
+}
+
+.botaovoltar:hover,
+.botaoproximo:hover {
+    transform: translateY(-2px);
+}
+
+.botaoproximo:disabled {
+    background: #b0b0b0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.divibaixo {
+    width: 100%;
+    height: 60px;
+}
