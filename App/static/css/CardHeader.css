@@ -77,16 +77,16 @@ button{
     cursor: pointer;
     
     transition: 
-    trasnform 0.2s ease,
+    transform 0.2s ease,
     border-color 0.2 ease,
-        bacground-color 0.2 ease,
-        box-shadow 0.2 ease;
+    background-color 0.2 ease,
+    box-shadow 0.2 ease;
 }
 button:hover{
     transform: translateY(-6px);
     border-color: (255,255,255,0.8);
     background-color: (255,255,255,0.08);
-    box-shadow: 0 8px 18px rgba0(0,0,0,0.18);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
     
 }
 
