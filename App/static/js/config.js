@@ -50,16 +50,27 @@ botoes.forEach(botao => {
 
         const secao = botao.dataset.secao;
 
-        if(secao === "conta"){
-            carregarSecao("contaConfig");
+        carregarSecao(secao + "Config");
+    });
+});
+
+/* ==========================================================
+                DADOS JAVA SCRIPT
+========================================================== */
+
+document.addEventListener("change", (e) => {
+
+    if (e.target.classList.contains("input-arquivo")) {
+
+        const linha = e.target.closest(".linha-dados");
+        const nomeArquivo = linha.querySelector(".nome-arquivo");
+        const btnAtualizar = linha.querySelector(".btn-atualizar");
+
+        if (e.target.files.length > 0) {
+            nomeArquivo.textContent = e.target.files[0].name;
+            btnAtualizar.disabled = false;
         }
 
-        // depois você pode adicionar outras telas aqui
-        // ex:
-        // if(secao === "privacidade"){
-        //     carregarSecao("privacidade");
-        // }
-
-    });
+    }
 
 });
