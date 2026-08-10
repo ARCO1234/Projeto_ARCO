@@ -13,14 +13,13 @@ app = Flask(__name__)
 def index():
     params: resend.Emails.SendParams = {
         "from": "Acme <onboarding@resend.dev>",
-        "to": ["lucianoguilhermedasilva40@gmail.com"],
+        "to": ["projeto.arco.01@gmail.com"],
         "subject": "hello world",
         "html": "<strong>it works!</strong>",
     }
 
     r = resend.Emails.send(params)
     return jsonify(r)
-
 
 if __name__ == "__main__":
     app.run()
