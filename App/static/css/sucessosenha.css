@@ -41,6 +41,17 @@
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
 
 .fundologin {
     width: 100%;
@@ -60,16 +71,21 @@
     align-items: center;
 }
 
+.logo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    transform: translateY(25px);
+}
+
 .divimeio {
     width: 100%;
     display: flex;
-    justify-content: center;
-}
-
+    justify-content: center; }
 
 
 .caixabranca {
-    width: 30dvb;
+    width: 55dvb;
    align-items: center;
     text-align: center;
     background-color: #ffffff;
