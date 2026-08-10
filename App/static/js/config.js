@@ -74,3 +74,30 @@ document.addEventListener("change", (e) => {
     }
 
 });
+
+/* ==========================================================
+            MÓDULO: EDITAR MODELO DE FORMULÁRIOS
+========================================================== */
+
+document.addEventListener("click", (e) => {
+
+    // Alternar entre as abas "vigentes" / "arquivadas"
+    const aba = e.target.closest(".aba-formulario");
+    if (aba) {
+        document.querySelectorAll(".aba-formulario").forEach(a => a.classList.remove("ativa"));
+        aba.classList.add("ativa");
+    }
+
+    // Ligar/desligar o status (check verde) de uma pergunta
+    const botaoStatus = e.target.closest(".btn-status-pergunta");
+    if (botaoStatus) {
+        botaoStatus.classList.toggle("ativo");
+    }
+
+    // Excluir o card da pergunta
+    const botaoExcluir = e.target.closest(".btn-excluir-pergunta");
+    if (botaoExcluir) {
+        botaoExcluir.closest(".card-pergunta").remove();
+    }
+
+});

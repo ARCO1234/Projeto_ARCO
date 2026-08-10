@@ -474,3 +474,138 @@
     margin-right:12px;
     opacity:.55;
 }
+
+/* ==========================================================
+            SEÇÃO "EDITAR MODELO DE FORMULÁRIOS"
+========================================================== */
+
+.secao-formularios{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.abas-formularios{
+    display:flex;
+    gap:12px;
+}
+
+.aba-formulario{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 22px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    background:#fff;
+    font-size:15px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.aba-formulario.ativa{
+    background:#9a9a9a;
+    color:#fff;
+    border-color:#9a9a9a;
+}
+
+.icone-aba{
+    width:16px;
+    height:16px;
+}
+
+.acoes-formularios{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.btn-adicionar-pergunta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#7c5cff;
+    color:#fff;
+    border:none;
+    border-radius:22px;
+    padding:12px 22px;
+    font-weight:bold;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    cursor:pointer;
+}
+
+.icone-adicionar{
+    width:16px;
+    height:16px;
+}
+
+.lista-perguntas{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.card-pergunta{
+    border:1px solid #ddd;
+    border-radius:14px;
+    padding:18px 20px;
+}
+
+.linha-superior-pergunta{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+}
+
+.rotulo-pergunta{
+    display:block;
+    font-size:12px;
+    color:#999;
+    text-transform:uppercase;
+    margin-bottom:4px;
+}
+
+.texto-pergunta{
+    font-size:18px;
+    text-transform:uppercase;
+}
+
+.btn-status-pergunta{
+    width:28px;
+    height:28px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ccc;
+    color:#fff;
+    cursor:pointer;
+}
+
+.btn-status-pergunta.ativo{
+    background:#2ecc71;
+}
+
+.linha-inferior-pergunta{
+    display:flex;
+    justify-content:flex-end;
+    gap:14px;
+    margin-top:14px;
+}
+
+.btn-arquivar-pergunta,
+.btn-excluir-pergunta{
+    background:transparent;
+    border:none;
+    color:#333;
+    cursor:pointer;
+}
+
+.icone-acao-pergunta{
+    width:18px;
+    height:18px;
+}
