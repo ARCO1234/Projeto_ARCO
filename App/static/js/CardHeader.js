@@ -9,3 +9,4 @@
  });
 
  botoes[5].classList.add('ativo');
+
