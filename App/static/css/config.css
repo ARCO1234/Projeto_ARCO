@@ -1,611 +1,476 @@
 /* ==========================================================
-                LAYOUT GERAL DA PÁGINA
+                        RESET
 ========================================================== */
 
-.pagina-config{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    display:flex;
-    min-height:calc(100vh - 91px); /* 91px = altura provisória do cabeçalho */
+
+/* ==========================================================
+                    VARIÁVEIS
+========================================================== */
+
+:root{
+
+    /* Tema Claro */
+
+    --cor-fundo:#ffffff;
+    --cor-texto:#000000;
+    --cor-menu:#ffffff;
+    --cor-hover:#ececec;
+    --cor-header:linear-gradient(
+        90deg,
+        #044ceb,
+        #001f64
+    );
+
+    /* Componentes */
+
+    --cor-card:#ffffff;
+    --sombra:0px 4px 10px rgba(0,0,0,.20);
+    --borda:18px;
+    --transicao:.30s;
 
 }
 
 
 /* ==========================================================
-                MENU LATERAL DAS SEÇÕES
+                    MODO ESCURO
+========================================================== */
+
+body.modo-escuro{
+
+    --cor-fundo:#1b1b1b;
+    --cor-texto:#ffffff;
+    --cor-menu:#2b2b2b;
+    --cor-hover:#3b3b3b;
+    --cor-card:#333333;
+    --cor-header:linear-gradient(
+        90deg,
+        #0f172a,
+        #1e293b
+    );
+
+}
+
+
+/* ==========================================================
+                        BODY
+========================================================== */
+
+body{
+
+    background:var(--cor-fundo);
+    color:var(--cor-texto);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                    CABEÇALHO
+========================================================== */
+
+.cabecalho{
+
+    width:100%;
+    height:10dvh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    background-image:var(--cor-header);
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+            LADO ESQUERDO DO CABEÇALHO
+========================================================== */
+
+.cabecalho-esquerda{
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+/* ==========================================================
+            LADO DIREITO DO CABEÇALHO
+========================================================== */
+
+.cabecalho-direita{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+
+/* ==========================================================
+                    BOTÕES
+========================================================== */
+
+button{
+
+    border:none;
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+                    BOTÃO VOLTAR
+========================================================== */
+
+.btn-voltar{
+
+    background:transparent;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    transition:var(--transicao);
+
+}
+
+
+.btn-voltar:hover{
+
+    transform:translateX(-5px);
+
+}
+
+
+/* ==========================================================
+                    BOTÃO TEMA
+========================================================== */
+
+.btn-tema{
+
+    background:transparent;
+    color:var(--cor-texto);
+    font-size:24px;
+    transition:var(--transicao);
+
+}
+
+
+.btn-tema:hover{
+
+    transform:rotate(20deg);
+
+}
+
+
+/* ==========================================================
+                        LOGO
+========================================================== */
+
+.logo{
+
+    height:60px;
+
+}
+
+
+/* ==========================================================
+                    CONTEÚDO
+========================================================== */
+
+.conteudo{
+
+    display:flex;
+    min-height:90dvh;
+
+}
+
+
+/* ==========================================================
+            MENU DAS CONFIGURAÇÕES
 ========================================================== */
 
 .menu-config{
 
     width:320px;
-
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-
+    background:var(--cor-menu);
     padding:35px 20px;
-
-    border-right:1px solid #eee;
+    box-shadow:var(--sombra);
+    transition:var(--transicao);
 
 }
 
 
 /* ---------------------------------------------------------- */
 
-.titulo-config{
+.menu-config h2{
 
+    margin-bottom:30px;
     font-size:32px;
     font-weight:normal;
-    margin-bottom:20px;
-    padding:0 16px;
-
-}
-
-
-/* ==========================================================
-                    ITEM DO MENU DE CONFIGS
-========================================================== */
-
-.item-config{
-
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    width:100%;
-    text-align:left;
-
-    background:transparent;
-    border:none;
-    border-left:4px solid transparent;
-    border-radius:10px;
-
-    padding:14px 16px;
-
-    font-size:16px;
-    font-family:inherit;
-    color:#333;
-
-    cursor:pointer;
-    transition:.2s;
 
 }
 
 
 /* ---------------------------------------------------------- */
 
-.icone-item-config{
+.menu-config a{
 
-    width:20px;
-    height:20px;
-    flex-shrink:0;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.item-config:hover{
-
-    background:#f2f2f2;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.item-config.ativo{
-
-    background:#ececec;
-    border-left:4px solid #001f64;
-    font-weight:bold;
-
-}
-
-
-/* ==========================================================
-                    ÁREA DE CONTEÚDO
-========================================================== */
-
-.area-config{
-
-    flex:1;
-    padding:35px 40px;
-
-}
-
-
-/* ==========================================================
-            SEÇÃO "CONFIGURAÇÕES DE CONTA" — BUSCA
-========================================================== */
-
-.busca-config{
-
-    width:100%;
-
-    padding:14px 18px;
-
-    border:1px solid #ddd;
-    border-radius:12px;
-
-    font-size:15px;
-    font-family:inherit;
-
-    margin-bottom:20px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.subtitulo-config{
-
-    font-size:19px;
-    font-weight:normal;
-    margin-bottom:18px;
-
-}
-
-
-/* ==========================================================
-                    CABEÇALHO "MINHAS CONTAS"
-========================================================== */
-
-.cabecalho-secao-contas{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:18px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.btn-adicionar-conta{
-
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    background:#f2f2f2;
-    border:none;
-    border-radius:20px;
-
-    padding:10px 18px;
-
-    font-size:14px;
-    font-family:inherit;
-
-    cursor:pointer;
-    transition:.2s;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.icone-btn-adicionar{
-
-    width:16px;
-    height:16px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.btn-adicionar-conta:hover{
-
-    background:#e4e4e4;
-
-}
-
-
-/* ==========================================================
-                        CARD DE CONTA
-========================================================== */
-
-.card-conta{
-
-    border:1px solid #ddd;
-    border-radius:16px;
-
-    padding:20px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.linha-superior-conta{
-
-    display:flex;
-    align-items:center;
-    gap:18px;
-
-    padding-bottom:16px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.avatar-conta{
-
-    width:70px;
-    height:70px;
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#ffd9a8; /* cor provisória - back-end troca por foto real */
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.icone-avatar{
-
-    width:34px;
-    height:34px;
-    color:#8a5a20;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.nome-conta{
-
-    font-size:22px;
-    font-weight:normal;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.email-conta{
-
-    font-size:14px;
-    color:#666;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.cargo-conta{
-
-    font-size:14px;
-    font-weight:bold;
-    color:#27ae60;
-
-}
-
-
-/* ==========================================================
-                LINHA INFERIOR DO CARD
-========================================================== */
-
-.linha-inferior-conta{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    border-top:1px solid #eee;
-    padding-top:14px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.link-info-conta{
-
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    color:#666;
-    font-size:14px;
-    text-decoration:none;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.icone-link-info{
-
-    width:16px;
-    height:16px;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.link-info-conta:hover{
-
-    text-decoration:underline;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.btn-sair-conta{
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:transparent;
-    border:none;
-
-    color:#333;
-
-    cursor:pointer;
-
-}
-
-
-/* ---------------------------------------------------------- */
-
-.icone-sair{
-
-    width:20px;
-    height:20px;
-
-}
-
-/* ==========================================================
-                DADOS CSS - VISUAL DO CANVA
-========================================================== */
-
-.secao-dados{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-}
-
-.linha-dados{
-    border:1px solid #9aa8c7;
-    border-radius:16px;
-    padding:10px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-
-    min-height:118px;
-    background:#fff;
-}
-
-.cabecalho-linha-dados{
-    width:370px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:12px;
-
-    margin:0;
-}
-
-.cabecalho-linha-dados h3{
-    margin:0;
-    font-size:20px;
-    font-weight:600;
-    color:#111;
-    line-height:1;
-}
-
-.botoes-linha-dados{
-    display:flex;
-    gap:8px;
-}
-
-.btn-anexar,
-.btn-atualizar{
-    height:40px;
-    padding:0 16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:6px;
-    font-size:15px;
-    font-weight:500;
-    white-space:nowrap;
-}
-
-.btn-anexar{
-    background:#0047d9;
-    color:#fff;
-    border:none;
-    cursor:pointer;
-}
-
-.btn-atualizar{
-    background:#aeb6c7;
-    color:#fff;
-    border:none;
-    cursor:not-allowed;
-}
-
-.btn-atualizar:not(:disabled){
-    background:#0078ff;
-    cursor:pointer;
-}
-
-.caixa-arquivo{
-    flex:1;
-    min-height:84px;
-
-    background:#efefef;
-    border-radius:14px;
-
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-
-    padding:0 24px;
-
-    color:#6f6f6f;
-    font-size:15px;
-    text-align:left;
-}
-
-.caixa-arquivo::before{
-    content:"📄";
-    font-size:18px;
-    margin-right:12px;
-    opacity:.55;
-}
-
-/* ==========================================================
-            SEÇÃO "EDITAR MODELO DE FORMULÁRIOS"
-========================================================== */
-
-.secao-formularios{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-
-.abas-formularios{
-    display:flex;
-    gap:12px;
-}
-
-.aba-formulario{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:14px 22px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    background:#fff;
-    font-size:15px;
-    font-family:inherit;
-    cursor:pointer;
-}
-
-.aba-formulario.ativa{
-    background:#9a9a9a;
-    color:#fff;
-    border-color:#9a9a9a;
-}
-
-.icone-aba{
-    width:16px;
-    height:16px;
-}
-
-.acoes-formularios{
-    display:flex;
-    justify-content:flex-end;
-}
-
-.btn-adicionar-pergunta{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:#7c5cff;
-    color:#fff;
-    border:none;
-    border-radius:22px;
-    padding:12px 22px;
-    font-weight:bold;
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-    cursor:pointer;
-}
-
-.icone-adicionar{
-    width:16px;
-    height:16px;
-}
-
-.lista-perguntas{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-}
-
-.card-pergunta{
-    border:1px solid #ddd;
-    border-radius:14px;
-    padding:18px 20px;
-}
-
-.linha-superior-pergunta{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:16px;
-}
-
-.rotulo-pergunta{
     display:block;
-    font-size:12px;
-    color:#999;
-    text-transform:uppercase;
-    margin-bottom:4px;
+    text-decoration:none;
+    color:var(--cor-texto);
+    padding:15px;
+    border-radius:10px;
+    font-size:20px;
+    transition:var(--transicao);
+
 }
 
-.texto-pergunta{
-    font-size:18px;
-    text-transform:uppercase;
-}
 
-.btn-status-pergunta{
-    width:28px;
-    height:28px;
-    flex-shrink:0;
-    border-radius:50%;
-    border:none;
+/* ---------------------------------------------------------- */
+
+.menu-config a:hover{
+
+    background:var(--cor-hover);
+
+}
+/* ==========================================================
+                PAINEL PRINCIPAL
+========================================================== */
+
+.painel-config{
+
+    flex:1;
     display:flex;
-    align-items:center;
+    flex-direction:column;
+    padding:40px 60px;
+    background:var(--cor-fundo);
+    transition:var(--transicao);
+
+}
+
+
+/* ==========================================================
+                BARRA DE PESQUISA
+========================================================== */
+
+.barra-pesquisa{
+
+    width:100%;
+    display:flex;
     justify-content:center;
-    background:#ccc;
-    color:#fff;
-    cursor:pointer;
+    margin-bottom:40px;
+
 }
 
-.btn-status-pergunta.ativo{
-    background:#2ecc71;
+
+/* ---------------------------------------------------------- */
+
+.input-pesquisa{
+
+    width:700px;
+    max-width:100%;
+    padding:15px 20px;
+    font-size:18px;
+    border-radius:12px;
+    border:2px solid #cfcfcf;
+    background:var(--cor-card);
+    color:var(--cor-texto);
+    outline:none;
+    transition:var(--transicao);
+
 }
 
-.linha-inferior-pergunta{
+
+/* ---------------------------------------------------------- */
+
+.input-pesquisa:focus{
+
+    border-color:#044ceb;
+    box-shadow:0px 0px 8px rgba(4,76,235,.25);
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.input-pesquisa::placeholder{
+
+    color:gray;
+
+}
+
+
+/* ==========================================================
+                MAIS PESQUISADOS
+========================================================== */
+
+.mais-pesquisados{
+
+    width:100%;
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+.mais-pesquisados h2{
+
+    margin-bottom:25px;
+    font-size:35px;
+    font-weight:normal;
+
+}
+
+
+/* ==========================================================
+                LISTA DE OPÇÕES
+========================================================== */
+
+.lista-opcoes{
+
     display:flex;
-    justify-content:flex-end;
-    gap:14px;
-    margin-top:14px;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
 }
 
-.btn-arquivar-pergunta,
-.btn-excluir-pergunta{
-    background:transparent;
-    border:none;
-    color:#333;
+
+/* ==========================================================
+                CARD DAS OPÇÕES
+========================================================== */
+
+.opcao-config{
+
+    width:300px;
+    min-height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    border-radius:18px;
+    background:var(--cor-card);
+    color:var(--cor-texto);
+    font-size:22px;
     cursor:pointer;
+    box-shadow:var(--sombra);
+    transition:var(--transicao);
+
 }
 
-.icone-acao-pergunta{
-    width:18px;
-    height:18px;
+
+/* ---------------------------------------------------------- */
+
+.opcao-config:hover{
+
+    transform:translateY(-6px);
+    box-shadow:0px 8px 18px rgba(0,0,0,.25);
+
+}
+
+
+/* ==========================================================
+                RESPONSIVIDADE
+========================================================== */
+
+@media(max-width:1100px){
+
+    .conteudo{
+
+        flex-direction:column;
+
+    }
+
+    .menu-config{
+
+        width:100%;
+        box-shadow:none;
+
+    }
+
+    .painel-config{
+
+        padding:30px;
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+@media(max-width:800px){
+
+    .lista-opcoes{
+
+        justify-content:center;
+
+    }
+
+    .input-pesquisa{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+@media(max-width:600px){
+
+    .cabecalho{
+
+        padding:0 15px;
+
+    }
+
+    .logo{
+
+        height:50px;
+
+    }
+
+    .btn-voltar{
+
+        font-size:16px;
+
+    }
+
+    .menu-config h2{
+
+        font-size:28px;
+
+    }
+
+    .menu-config a{
+
+        font-size:18px;
+
+    }
+
+    .mais-pesquisados h2{
+
+        font-size:28px;
+
+    }
+
+    .opcao-config{
+
+        width:100%;
+        font-size:20px;
+
+    }
+
 }

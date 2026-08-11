@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificações</title>
-    <head>
-    <link rel="stylesheet" href="../static/css/Notifprof.css">
-    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
-
+    <title>ARCO - Notificações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Notifprof.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/capelo-A-1.png') }}" type="image/png">
 </head>
 <body>
-  <h1>Notifições</h1>
- 
-         <button class="mais">
-                 mais
-            </button>
-   
+    {% include 'cardheader.html' %}
+    <main>
+        <h1>Notificações</h1>
+        <button class="mais" type="button">Mais</button>
+    </main>
+    <script src="{{ url_for('static', filename='js/auth-guard.js') }}"></script>
 </body>
 </html>

@@ -1,103 +1,180 @@
 /* ==========================================================
-                    CARREGAR SEÇÕES
+                    CAPTURA DOS ELEMENTOS
 ========================================================== */
 
-const areaConfig = document.getElementById("area-config");
-const botoes = document.querySelectorAll(".item-config");
+const btnVoltar = document.getElementById("btnVoltar");
+const btnTema = document.getElementById("btnTema");
+const btnConta = document.getElementById("btnConta");
+const btnPrivacidade = document.getElementById("btnPrivacidade");
+const btnAparencia = document.getElementById("btnAparencia");
+const btnNotificacoes = document.getElementById("btnNotificacoes");
+const btnAjuda = document.getElementById("btnAjuda");
+const inputPesquisa = document.getElementById("inputPesquisa");
 
 
 /* ==========================================================
-        FUNÇÃO QUE CARREGA O HTML DA SEÇÃO
+                    BOTÃO VOLTAR
 ========================================================== */
 
-async function carregarSecao(nomeArquivo){
+/*
+    Retorna para a tela inicial.
+*/
 
-    try{
+function voltarPagina(){
 
-        const resposta = await fetch(`../templates/${nomeArquivo}.html`);
-
-        const html = await resposta.text();
-
-        areaConfig.innerHTML = html;
-
-    }catch(erro){
-
-        areaConfig.innerHTML = "<p>Erro ao carregar a seção.</p>";
-
-        console.error(erro);
-    }
+    window.location.href = "/Inicial-page";
+    
 }
 
 
 /* ==========================================================
-        CARREGA A TELA DE CONTA AO ABRIR A PÁGINA
+                    MODO ESCURO
 ========================================================== */
 
-carregarSecao("contaConfig");
+/*
+    Alterna entre o modo claro e escuro.
+*/
+
+function alternarTema(){
+
+    document.body.classList.toggle("modo-escuro");
+
+    if(document.body.classList.contains("modo-escuro")){
+
+        btnTema.textContent = "🌙";
+        localStorage.setItem("tema","escuro");
+
+    }
+
+    else{
+
+        btnTema.textContent = "☀️";
+        localStorage.setItem("tema","claro");
+
+    }
+
+}
 
 
 /* ==========================================================
-        TROCA DE SEÇÕES AO CLICAR NO MENU
+                CARREGAR TEMA SALVO
 ========================================================== */
 
-botoes.forEach(botao => {
+/*
+    Mantém o tema escolhido pelo usuário.
+*/
 
-    botao.addEventListener("click", () => {
+function carregarTema(){
 
-        botoes.forEach(b => b.classList.remove("ativo"));
+    const tema = localStorage.getItem("tema");
 
-        botao.classList.add("ativo");
+    if(tema === "escuro"){
 
-        const secao = botao.dataset.secao;
+        document.body.classList.add("modo-escuro");
+        btnTema.textContent = "🌙";
 
-        carregarSecao(secao + "Config");
-    });
-});
+    }
+
+}
+
 
 /* ==========================================================
-                DADOS JAVA SCRIPT
+            MENU DE CONFIGURAÇÕES
 ========================================================== */
 
-document.addEventListener("change", (e) => {
+function abrirConta(){
 
-    if (e.target.classList.contains("input-arquivo")) {
+    alert("Configurações da Conta.");
 
-        const linha = e.target.closest(".linha-dados");
-        const nomeArquivo = linha.querySelector(".nome-arquivo");
-        const btnAtualizar = linha.querySelector(".btn-atualizar");
+}
 
-        if (e.target.files.length > 0) {
-            nomeArquivo.textContent = e.target.files[0].name;
-            btnAtualizar.disabled = false;
-        }
 
-    }
+function abrirPrivacidade(){
 
-});
+    alert("Configurações de Privacidade.");
+
+}
+
+
+function abrirAparencia(){
+
+    alert("Configurações de Aparência.");
+
+}
+
+
+function abrirNotificacoes(){
+
+    alert("Configurações de Notificações.");
+
+}
+
+
+function abrirAjuda(){
+
+    alert("Central de Ajuda.");
+
+}
+
 
 /* ==========================================================
-            MÓDULO: EDITAR MODELO DE FORMULÁRIOS
+                    PESQUISA
 ========================================================== */
 
-document.addEventListener("click", (e) => {
+/*
+    Apenas demonstra o funcionamento.
+*/
 
-    // Alternar entre as abas "vigentes" / "arquivadas"
-    const aba = e.target.closest(".aba-formulario");
-    if (aba) {
-        document.querySelectorAll(".aba-formulario").forEach(a => a.classList.remove("ativa"));
-        aba.classList.add("ativa");
-    }
-
-    // Ligar/desligar o status (check verde) de uma pergunta
-    const botaoStatus = e.target.closest(".btn-status-pergunta");
-    if (botaoStatus) {
-        botaoStatus.classList.toggle("ativo");
-    }
-
-    // Excluir o card da pergunta
-    const botaoExcluir = e.target.closest(".btn-excluir-pergunta");
-    if (botaoExcluir) {
-        botaoExcluir.closest(".card-pergunta").remove();
-    }
+inputPesquisa.addEventListener("keyup", function(){
+    console.log("Pesquisando:", inputPesquisa.value);
 
 });
+
+
+/* ==========================================================
+                    EVENTOS
+========================================================== */
+
+btnVoltar.addEventListener("click", voltarPagina);
+btnTema.addEventListener("click", alternarTema);
+btnConta.addEventListener("click", function(event){
+    event.preventDefault();
+    abrirConta();
+
+});
+
+btnPrivacidade.addEventListener("click", function(event){
+
+    event.preventDefault();
+    abrirPrivacidade();
+
+});
+
+btnAparencia.addEventListener("click", function(event){
+
+    event.preventDefault();
+    abrirAparencia();
+
+});
+
+btnNotificacoes.addEventListener("click", function(event){
+
+    event.preventDefault();
+    abrirNotificacoes();
+
+});
+
+btnAjuda.addEventListener("click", function(event){
+
+    event.preventDefault();
+    abrirAjuda();
+
+});
+
+
+/* ==========================================================
+                INICIALIZAÇÃO
+========================================================== */
+
+carregarTema();
+console.log("Tela de Configurações carregada com sucesso.");
