@@ -8,5 +8,5 @@
 
  });
 
- botoes[5].classList.add('ativo');
+ botoes[0].classList.add('ativo');
 
