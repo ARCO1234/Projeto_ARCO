@@ -1,7 +1,7 @@
-const icones = document.querySelectorAll('.icon');
+const icones = document.querySelectorAll(".icon");
 
-function trocarIcones() {
-    const modoEscuro = document.body.classList.contains('modo-escuro');
+function atualizarIcones() {
+    const modoEscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     icones.forEach(icone => {
         if (modoEscuro) {
@@ -11,3 +11,9 @@ function trocarIcones() {
         }
     });
 }
+
+atualizarIcones();
+
+window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", atualizarIcones);
