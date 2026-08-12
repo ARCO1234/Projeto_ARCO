@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- ==================================================
+                        CONFIGURAÇÕES
+    =================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCO - Configurações</title>
+    <link rel="stylesheet" href="/static/css/config.css">
+    <link rel="shortcut icon"
+          href="/static/img/arco.png"
+          type="image/x-icon">
+
+</head>
+
+<body>
+
+    <!-- ==================================================
+                        CABEÇALHO
+    =================================================== -->
+
+    <header class="cabecalho">
+
+        <!-- Lado esquerdo -->
+
+        <div class="cabecalho-esquerda">
+
+            <button
+                class="btn-voltar"
+                id="btnVoltar">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+        <!-- Lado direito -->
+
+        <div class="cabecalho-direita">
+
+            <button
+                class="btn-tema"
+                id="btnTema">
+
+                ☀️
+
+            </button>
+
+            <img
+                src="/static/img/arco.png"
+                alt="Logo ARCO"
+                class="logo">
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+                    CONTEÚDO PRINCIPAL
+    =================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- =============================================
+                MENU DAS CONFIGURAÇÕES
+        ============================================== -->
+
+        <aside class="menu-config">
+
+            <h2>
+
+                Configurações
+
+            </h2>
+
+            <a href="#" id="btnConta">
+
+                👤 Conta
+
+            </a>
+
+            <a href="#" id="btnPrivacidade">
+
+                🔒 Privacidade
+
+            </a>
+
+            <a href="#" id="btnAparencia">
+
+                🎨 Aparência
+
+            </a>
+
+            <a href="#" id="btnNotificacoes">
+
+                🔔 Notificações
+
+            </a>
+
+            <a href="#" id="btnAjuda">
+
+                ❓ Ajuda
+
+            </a>
+
+        </aside>
+
+
+        <!-- =============================================
+                PAINEL PRINCIPAL
+        ============================================== -->
+
+        <section class="painel-config">
+
+
+            <!-- Pesquisa -->
+
+            <div class="barra-pesquisa">
+
+                <input
+                    type="text"
+                    id="inputPesquisa"
+                    class="input-pesquisa"
+                    placeholder="🔍 Pesquisar configurações">
+
+            </div>
+
+
+            <!-- Mais pesquisados -->
+
+            <section class="mais-pesquisados">
+
+                <h2>
+
+                    Mais Pesquisados
+
+                </h2>
+
+                <div class="lista-opcoes">
+
+                    <article class="opcao-config">
+
+                        Alterar senha
+
+                    </article>
+
+                    <article class="opcao-config">
+
+                        Trocar foto de perfil
+
+                    </article>
+
+                    <article class="opcao-config">
+
+                        Alterar tema
+
+                    </article>
+
+                    <article class="opcao-config">
+
+                        Privacidade da conta
+
+                    </article>
+
+                    <article class="opcao-config">
+
+                        Notificações
+
+                    </article>
+
+                    <article class="opcao-config">
+
+                        Idioma
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
+                        JAVASCRIPT
+    =================================================== -->
+
+    <script src="/static/js/auth-guard.js"></script>
+    <script src="/static/js/config.js"></script>
+
+</body>
+
+</html>
