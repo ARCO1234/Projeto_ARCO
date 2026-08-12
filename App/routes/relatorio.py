@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from database import conectar
+from App.database import conectar
 from flask_jwt_extended import jwt_required
-from auth import matricula_atual, is_gestor, is_apoio
+from App.auth import matricula_atual, is_gestor, is_apoio
 
 relatorio_bp = Blueprint('relatorio', __name__)
 

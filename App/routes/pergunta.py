@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from database import conectar
+from App.database import conectar
 from flask_jwt_extended import jwt_required
 
 pergunta_bp = Blueprint('pergunta', __name__)

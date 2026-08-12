@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 import mysql.connector
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 
 def conectar():
@@ -12,7 +13,8 @@ def conectar():
             user=os.getenv("DB_USER", "root"),
             password=os.getenv("DB_PASSWORD"),
             database=os.getenv("DB_NAME", "Project"),
-            autocommit=False
+            autocommit=False,
+            connection_timeout=5,
         )
 
         return conexao

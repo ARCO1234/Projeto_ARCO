@@ -12,12 +12,25 @@ consultar o banco de novo a cada requisição só para saber o papel.
 """
 
 from functools import wraps
+import re
 from flask import jsonify
 from flask_jwt_extended import verify_jwt_in_request, get_jwt, get_jwt_identity
 
 GESTOR = "gestor"
 PROFISSIONAL = "profissional"
 APOIO = "equipe de apoio"
+
+
+def senha_forte(senha):
+    """Valida a mesma política exibida na tela de nova senha."""
+    return bool(
+        isinstance(senha, str)
+        and 8 <= len(senha) <= 25
+        and re.search(r"[A-Z]", senha)
+        and re.search(r"[a-z]", senha)
+        and re.search(r"\d", senha)
+        and re.search(r"[^A-Za-z0-9]", senha)
+    )
 
 
 def requer_tipo(*tipos_permitidos):

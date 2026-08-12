@@ -28,18 +28,12 @@ body {
     align-items: center;
 }
 
-.logo {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    transform: translateY(25px);
-}
-
 .divimeio {
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
 
 .caixabranca {
     width: 420px;
@@ -48,12 +42,13 @@ body {
     padding: 35px 45px 45px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .caixabranca h1 {
     text-align: center;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 800;
     color: #111;
     margin-bottom: 8px;
@@ -67,6 +62,25 @@ body {
     margin-bottom: 25px;
 }
 
+.entradaemail,
+.entradasenha {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.entradaemail::placeholder,
+.entradasenha::placeholder {
+    color: transparent;
+}
+
+/* Labels "Email" e "Senha:" - adicione as tags <label> no HTML acima dos inputs */
 .caixabranca label {
     font-weight: 700;
     font-size: 14px;
@@ -74,95 +88,45 @@ body {
     margin-bottom: 8px;
 }
 
-.novasenha,
-.entradasenha {
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    background-color: #d9d9d9;
-    padding: 0 15px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    outline: none;
-}
-
-.titulo-requisitos {
-    font-size: 14px;
-    color: #111;
-    margin-bottom: 8px;
-}
-
-.lista-requisitos {
-    list-style: none;
-    columns: 2;
+.esqueci {
+    align-self: flex-end;
     font-size: 13px;
-    color: #333;
+    color: #1560e8;
+    text-decoration: none;
     margin-bottom: 25px;
+    cursor: pointer;
 }
 
-.lista-requisitos li {
-    margin-bottom: 5px;
-    position: relative;
-    padding-left: 15px;
+.esqueci:hover {
+    text-decoration: underline;
 }
 
-.lista-requisitos li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-}
-
-.lista-requisitos li.valido {
-    color: #1e9e3e;
-    font-weight: 600;
-}
-
-.lista-requisitos li.valido::before {
-    content: "✓";
-    color: #1e9e3e;
-}
-
-.botoes {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.botaovoltar,
-.botaoproximo {
-    width: 45%;
+.botaoentrar {
+    width: 65%;
+    align-self: center;
     height: 45px;
     border: none;
     border-radius: 10px;
+    background: linear-gradient(180deg, #1560e8 0%, #0a1f6e 100%);
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
-    color: #fff;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.15s ease;
 }
 
-.botaovoltar {
-    background: linear-gradient(180deg, #5c5959 0%, #5b5959 100%);
-}
-
-.botaoproximo {
-    background: linear-gradient(180deg, #1560e8 0%, #1560e8 100%);
-}
-
-.botaovoltar:hover,
-.botaoproximo:hover {
+.botaoentrar:hover {
     transform: translateY(-2px);
-}
-
-.botaoproximo:disabled {
-    background: #b0b0b0;
-    cursor: not-allowed;
-    box-shadow: none;
 }
 
 .divibaixo {
     width: 100%;
     height: 60px;
+}
+
+.logo {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
 }

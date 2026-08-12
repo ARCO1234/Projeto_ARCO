@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from database import conectar
+from App.database import conectar
 from flask_jwt_extended import jwt_required
 
 

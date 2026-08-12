@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Verificação </title>
+    <link rel="icon" href="/static/img/capelo.png" type="image/png">
+    <link rel="stylesheet" href="/static/css/novoverificacao.css">
+</head>
+<body>
+
+    <div class="fundologin">
+        <div class="divilogo">
+            <img src="/static/img/arco.png" alt="Logo do ARCO" class="logo">
+        </div>
+        <main class="divimeio">
+
+            <!-- ============================================
+                    ETAPA 1 - INFORMAR E-MAIL
+            ============================================= -->
+            <div class="caixabranca" id="etapaEmail">
+                <h1>
+                    Vamos recuperar sua senha!
+                </h1>
+                <h2>Informe o e-mail cadastrado <br> para receber o código</h2>
+
+                <label for="email">E-mail</label>
+                <input type="text" placeholder="Digite seu e-mail" class="entradacodigo" id="email">
+
+                <div class="botoes">
+                    <button class="botaovoltar" id="btnVoltarLogin"> VOLTAR </button>
+                    <button class="botaoentrar" id="btnEnviarEmail"> ENVIAR </button>
+                </div>
+            </div>
+
+            <!-- ============================================
+                    ETAPA 2 - VALIDAR CÓDIGO
+            ============================================= -->
+            <div class="caixabranca" id="etapaCodigo" style="display:none;">
+                <h1>
+                    Vamos recuperar sua senha!
+                </h1>
+                <h2>Enviamos um codigo de verificação <br> para:</h2>
+                <p id="emailMostrado">********@gmail.com</p>
+                <label for="codigo">Código de verificação</label>
+                <input type="text" placeholder="Coloque o código aqui" class="entradacodigo" id="codigo">
+
+                <div class="linha-reenvio">
+                    <p>código não chegou?</p>
+                    <a class="esqueci" id="btnReenviar">reenviar código</a>
+                </div>
+
+                <div class="botoes">
+                    <button class="botaovoltar" id="btnVoltar"> VOLTAR </button>
+                    <button class="botaoentrar" id="btnProximo"> PROXIMO </button>
+                </div>
+            </div>
+
+        </main>
+        <div class="divibaixo">
+
+        </div>
+    </div>
+
+    <script src="/static/js/recsenha.js"></script>
+</body>
+</html>
