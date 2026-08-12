@@ -1,0 +1,14 @@
+/*
+    Este arquivo foi esvaziado de propósito.
+
+    Todo o estilo de .card, .card-header, .card-footer e .icon-btn
+    (que antes existia duplicado aqui e em inicioprof.css, com valores
+    conflitantes) agora vive só em: static/css/inicioprof.css
+
+    Motivo: os cards de turma são sempre renderizados dentro da grade
+    #salas de inicioprof.html, então faz sentido ter uma única fonte
+    de verdade para esse estilo, em vez de duas competindo.
+
+    Este arquivo pode ser removido do projeto e do <link> em
+    cardturma.html sem quebrar nada.
+*/
