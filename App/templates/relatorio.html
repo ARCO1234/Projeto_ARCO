@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCO - Relatório</title>
+    <link rel="stylesheet" href="../static/css/relatorio.css">
+    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
+
+</head>
+
+<body>
+ 
+    <!-- ==================================================
+                        AQUI É O CABEÇALHO
+    =================================================== -->
+ 
+ 
+    <div class="pagina-relatorios">
+ 
+        <!-- =============================================
+                    TOPO: TÍTULO + BUSCA
+        ============================================== -->
+ 
+        <div class="topo-relatorios">
+ 
+            <h1 class="titulo-relatorios">
+                <svg viewBox="0 0 24 24" class="icone-titulo" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                    <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+                Relatórios
+            </h1>
+ 
+            <input type="text" class="busca-relatorios" placeholder="Pesquisar">
+ 
+        </div>
+ 
+ 
+        <!-- =============================================
+                        BARRA DE FILTROS
+        ============================================== -->
+ 
+        <div class="barra-filtros">
+ 
+            <span class="rotulo-filtros">Filtrar por:</span>
+ 
+            <!-- Cada .filtro é independente: botão + seu próprio dropdown -->
+ 
+            <div class="filtro" data-filtro="trimestre">
+                <button class="btn-filtro" type="button">
+                    Trimestre
+                    <svg viewBox="0 0 24 24" class="icone-chevron" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+ 
+            <div class="filtro" data-filtro="professor">
+                <button class="btn-filtro" type="button">
+                    Professor
+                    <svg viewBox="0 0 24 24" class="icone-chevron" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+ 
+            <div class="filtro" data-filtro="aluno">
+ 
+                <button class="btn-filtro" type="button">
+                    Aluno
+                    <svg viewBox="0 0 24 24" class="icone-chevron" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+ 
+                <!-- Dropdown desse filtro específico -->
+                <div class="dropdown-filtro">
+ 
+                    <button class="btn-remover-filtros" type="button">Remover filtros</button>
+ 
+                    <label class="opcao-filtro">
+                        <span class="texto-opcao-filtro">
+                            Gualauberto Estrôncio da Silva
+                            <span class="turma-opcao-filtro">3 TDS A</span>
+                        </span>
+                        <input type="radio" name="filtro-aluno">
+                    </label>
+ 
+                    <!-- repete o mesmo <label class="opcao-filtro"> pra cada aluno -->
+                    <label class="opcao-filtro">
+                        <span class="texto-opcao-filtro">
+                            Amanda Carvalho
+                            <span class="turma-opcao-filtro">3 TDS A</span>
+                        </span>
+                        <input type="radio" name="filtro-aluno">
+                    </label>
+ 
+                </div>
+ 
+            </div>
+ 
+            <div class="filtro" data-filtro="turma">
+                <button class="btn-filtro" type="button">
+                    Turma
+                    <svg viewBox="0 0 24 24" class="icone-chevron" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+ 
+            <div class="filtro" data-filtro="status">
+                <button class="btn-filtro" type="button">
+                    Status
+                    <svg viewBox="0 0 24 24" class="icone-chevron" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+ 
+        </div>
+ 
+ 
+        <!-- =============================================
+                            TABELA
+        ============================================== -->
+ 
+        <div class="tabela-relatorios">
+ 
+            <div class="linha-tabela cabecalho-tabela">
+                <span>Aluno</span>
+                <span>Turma</span>
+                <span>Professor</span>
+                <span>Trimestre</span>
+                <span>Status</span>
+            </div>
+ 
+            <!-- cada linha abaixo é um registro — repete pra cada resultado -->
+ 
+            <div class="linha-tabela">
+                <span class="celula-aluno">
+                    <svg viewBox="0 0 24 24" class="icone-aluno" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                    Gualauberto Estrôncio da Silva
+                </span>
+                <span>3 TDS A</span>
+                <span class="celula-link">João Batista Filho</span>
+                <span class="celula-link">1º Trimestre</span>
+                <span class="celula-status">
+                    Concluído <span class="bolinha-status concluido"></span>
+                </span>
+            </div>
+ 
+            <div class="linha-tabela">
+                <span class="celula-aluno">
+                    <svg viewBox="0 0 24 24" class="icone-aluno" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                    Gualauberto Estrôncio da Silva
+                </span>
+                <span>3 TDS A</span>
+                <span class="celula-link">Amanda Carvalho</span>
+                <span class="celula-link">2º Trimestre</span>
+                <span class="celula-status">
+                    Pendente <span class="bolinha-status pendente"></span>
+                </span>
+            </div>
+ 
+        </div>
+ 
+    </div>
+ 
+ 
+    <script src="../static/js/relatorio.js"></script>
+ 
+</body>
+ 
+</html>
+ 
