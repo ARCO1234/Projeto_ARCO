@@ -1,180 +1,55 @@
-/* ==========================================================
-                    CAPTURA DOS ELEMENTOS
-========================================================== */
+// Cada chave corresponde ao "data-secao" do botão,
+// e aponta pra uma ROTA do Flask (não um arquivo estático).
+// Essas rotas ainda não existem no back-end — quando existirem,
+// devem devolver o HTML já processado via render_template().
+// Até lá, o fetch vai falhar com 404 (é esperado).
+const arquivosSecao = {
+    conta:        '/configuracoes/conta',
+    privacidade:  '/configuracoes/privacidade',
+    sobre:        '/configuracoes/sobre',
+    dados:        '/configuracoes/dados',
+    formularios:  '/configuracoes/formularios'
+};
 
-const btnVoltar = document.getElementById("btnVoltar");
-const btnTema = document.getElementById("btnTema");
-const btnConta = document.getElementById("btnConta");
-const btnPrivacidade = document.getElementById("btnPrivacidade");
-const btnAparencia = document.getElementById("btnAparencia");
-const btnNotificacoes = document.getElementById("btnNotificacoes");
-const btnAjuda = document.getElementById("btnAjuda");
-const inputPesquisa = document.getElementById("inputPesquisa");
+// Busca o HTML da rota da seção e injeta dentro da área de conteúdo
+function carregarSecao(nome) {
 
+    const arquivo = arquivosSecao[nome];
 
-/* ==========================================================
-                    BOTÃO VOLTAR
-========================================================== */
+    if (!arquivo) {
+        console.error('Seção não encontrada:', nome);
+        return;
+    }
 
-/*
-    Retorna para a tela inicial.
-*/
+    fetch(arquivo)
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('area-config').innerHTML = html;
+        })
+        .catch(err => console.error('Erro ao carregar seção:', err));
 
-function voltarPagina(){
-
-    window.location.href = "/Inicial-page";
-    
 }
 
+// Delegação de evento: escuta clique em qualquer botão do menu-config
+document.addEventListener('click', function (e) {
 
-/* ==========================================================
-                    MODO ESCURO
-========================================================== */
+    const botao = e.target.closest('.item-config');
 
-/*
-    Alterna entre o modo claro e escuro.
-*/
+    if (botao) {
 
-function alternarTema(){
+        // tira "ativo" de todos os botões...
+        document.querySelectorAll('.item-config').forEach(b => {
+            b.classList.remove('ativo');
+        });
 
-    document.body.classList.toggle("modo-escuro");
+        // ...e coloca só no que foi clicado
+        botao.classList.add('ativo');
 
-    if(document.body.classList.contains("modo-escuro")){
-
-        btnTema.textContent = "🌙";
-        localStorage.setItem("tema","escuro");
+        carregarSecao(botao.dataset.secao);
 
     }
 
-    else{
-
-        btnTema.textContent = "☀️";
-        localStorage.setItem("tema","claro");
-
-    }
-
-}
-
-
-/* ==========================================================
-                CARREGAR TEMA SALVO
-========================================================== */
-
-/*
-    Mantém o tema escolhido pelo usuário.
-*/
-
-function carregarTema(){
-
-    const tema = localStorage.getItem("tema");
-
-    if(tema === "escuro"){
-
-        document.body.classList.add("modo-escuro");
-        btnTema.textContent = "🌙";
-
-    }
-
-}
-
-
-/* ==========================================================
-            MENU DE CONFIGURAÇÕES
-========================================================== */
-
-function abrirConta(){
-
-    alert("Configurações da Conta.");
-
-}
-
-
-function abrirPrivacidade(){
-
-    alert("Configurações de Privacidade.");
-
-}
-
-
-function abrirAparencia(){
-
-    alert("Configurações de Aparência.");
-
-}
-
-
-function abrirNotificacoes(){
-
-    alert("Configurações de Notificações.");
-
-}
-
-
-function abrirAjuda(){
-
-    alert("Central de Ajuda.");
-
-}
-
-
-/* ==========================================================
-                    PESQUISA
-========================================================== */
-
-/*
-    Apenas demonstra o funcionamento.
-*/
-
-inputPesquisa.addEventListener("keyup", function(){
-    console.log("Pesquisando:", inputPesquisa.value);
-
 });
 
-
-/* ==========================================================
-                    EVENTOS
-========================================================== */
-
-btnVoltar.addEventListener("click", voltarPagina);
-btnTema.addEventListener("click", alternarTema);
-btnConta.addEventListener("click", function(event){
-    event.preventDefault();
-    abrirConta();
-
-});
-
-btnPrivacidade.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirPrivacidade();
-
-});
-
-btnAparencia.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirAparencia();
-
-});
-
-btnNotificacoes.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirNotificacoes();
-
-});
-
-btnAjuda.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirAjuda();
-
-});
-
-
-/* ==========================================================
-                INICIALIZAÇÃO
-========================================================== */
-
-carregarTema();
-console.log("Tela de Configurações carregada com sucesso.");
+// Assim que a página abre, já carrega a primeira seção
+carregarSecao('conta');

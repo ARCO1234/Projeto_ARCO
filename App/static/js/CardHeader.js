@@ -1,19 +1,11 @@
-const botoes = document.querySelectorAll('.divEsquerd button');
-const caminhoAtual = window.location.pathname.toLowerCase();
+ const botoes = document.querySelectorAll('.divEsquerd button');
 
-botoes.forEach((botao) => {
-    const caminhoDoBotao = (botao.dataset.path || '').toLowerCase();
-
-    if (caminhoDoBotao === caminhoAtual) {
-        botao.classList.add('ativo');
-        botao.setAttribute('aria-current', 'page');
-    }
-
+ botoes.forEach(botao => {
     botao.addEventListener('click', () => {
-        botoes.forEach((item) => {
-            item.classList.remove('ativo');
-            item.removeAttribute('aria-current');
-        });
+        botoes.forEach(b => b.classList.remove('ativo'));
         botao.classList.add('ativo');
     });
-});
+
+ });
+
+ botoes[5].classList.add('ativo');
