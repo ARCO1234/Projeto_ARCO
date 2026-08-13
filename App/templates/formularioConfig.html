@@ -11,21 +11,14 @@
 
         <button class="aba-formulario" data-aba="arquivadas">
             Perguntas arquivadas
-            <svg viewBox="0 0 24 24" class="icone-aba" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 8v13H3V8"></path>
-                <path d="M1 3h22v5H1z"></path>
-                <path d="M10 12h4"></path>
-            </svg>
+            
         </button>
 
     </div>
 
     <div class="acoes-formularios">
         <button class="btn-adicionar-pergunta">
-            <svg viewBox="0 0 24 24" class="icone-adicionar" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
+            <img src="{{ url_for('static', filename='icons/X-P.png') }}" alt="" class="icone-btn">
             Adicionar pergunta
         </button>
     </div>
