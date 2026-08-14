@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCO - Configurações</title>
+    <link rel="stylesheet" href="../static/css/config.css">
+    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
+
+</head>
+
+<body>
+
+    <!-- ==================================================
+                        AQUI É O CABEÇALHO
+    =================================================== -->
+
+
+    <!-- ==================================================
+                    PÁGINA DE CONFIGURAÇÕES
+    =================================================== -->
+
+    <div class="pagina-config">
+
+        <!-- =============================================
+                MENU LATERAL DAS SEÇÕES
+        ============================================== -->
+
+        <aside class="menu-config">
+
+            <h1 class="titulo-config">Configurações</h1>
+
+            <button class="item-config ativo" data-secao="conta">
+                <img src="{{ url_for('static', filename='icons/PerfilIndividual-P.png') }}" alt="perfil" class="icone-btn">
+                Configurações de conta
+            </button>
+
+            <button class="item-config" data-secao="privacidade">
+                <img src="{{ url_for('static', filename='icons/capelo-A-1.png') }}" alt="capelo-a" class="icone-item-btn">
+                Privacidade
+            </button>
+
+            <button class="item-config" data-secao="sobre">
+                   <img src="{{ url_for('static', filename='icons/GODÊ-P.png') }}" alt="godebtn" class="icone-btn">
+                Sobre o ARCO
+            </button>
+
+            <button class="item-config" data-secao="dados">
+                 <img src="{{ url_for('static', filename='icons/atualizar-p.png') }}" alt="atualizarbtn" class="icone-btn">
+                Atualizar dados
+            </button>
+
+            <button class="item-config" data-secao="formulario">
+                    <img src="{{ url_for('static', filename='icons/doc-P.png') }}" alt="formulario" class="icone-btn">
+                Editar modelo de formulários
+            </button>
+
+        </aside>
+
+
+        <!-- =============================================
+                ÁREA ONDE A SEÇÃO ESCOLHIDA APARECE
+        ============================================== -->
+
+        <main class="area-config" id="area-config">
+
+            <!-- o conteúdo de cada seção entra aqui via fetch -->
+
+        </main>
+
+    </div>
+
+
+    <!-- ==================================================
+                        JAVASCRIPT
+    =================================================== -->
+
+    <script src="../static/js/config.js"></script>
+
+</body>
+
+</html>

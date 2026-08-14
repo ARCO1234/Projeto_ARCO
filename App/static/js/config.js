@@ -1,180 +1,106 @@
 /* ==========================================================
-                    CAPTURA DOS ELEMENTOS
+                    CARREGAR SEÇÕES
 ========================================================== */
 
-const btnVoltar = document.getElementById("btnVoltar");
-const btnTema = document.getElementById("btnTema");
-const btnConta = document.getElementById("btnConta");
-const btnPrivacidade = document.getElementById("btnPrivacidade");
-const btnAparencia = document.getElementById("btnAparencia");
-const btnNotificacoes = document.getElementById("btnNotificacoes");
-const btnAjuda = document.getElementById("btnAjuda");
-const inputPesquisa = document.getElementById("inputPesquisa");
+const areaConfig = document.getElementById("area-config");
+const botoes = document.querySelectorAll(".item-config");
 
+    const arquivo = arquivosSecao[nome];
 
 /* ==========================================================
-                    BOTÃO VOLTAR
+        FUNÇÃO QUE CARREGA O HTML DA SEÇÃO
 ========================================================== */
 
-/*
-    Retorna para a tela inicial.
-*/
+async function carregarSecao(nomeArquivo){
 
-function voltarPagina(){
+    try{
 
-    window.location.href = "/Inicial-page";
-    
+        const resposta = await fetch(`../templates/${nomeArquivo}.html`);
+
+        const html = await resposta.text();
+
+        areaConfig.innerHTML = html;
+
+    }catch(erro){
+
+        areaConfig.innerHTML = "<p>Erro ao carregar a seção.</p>";
+
+        console.error(erro);
+    }
 }
 
+// Delegação de evento: escuta clique em qualquer botão do menu-config
+document.addEventListener('click', function (e) {
 
 /* ==========================================================
-                    MODO ESCURO
+        CARREGA A TELA DE CONTA AO ABRIR A PÁGINA
 ========================================================== */
 
-/*
-    Alterna entre o modo claro e escuro.
-*/
+carregarSecao("contaConfig");
 
-function alternarTema(){
 
-    document.body.classList.toggle("modo-escuro");
+/* ==========================================================
+        TROCA DE SEÇÕES AO CLICAR NO MENU
+========================================================== */
 
-    if(document.body.classList.contains("modo-escuro")){
+botoes.forEach(botao => {
 
-        btnTema.textContent = "🌙";
-        localStorage.setItem("tema","escuro");
+    botao.addEventListener("click", () => {
+
+        botoes.forEach(b => b.classList.remove("ativo"));
+
+        botao.classList.add("ativo");
+
+        const secao = botao.dataset.secao;
+
+        carregarSecao(secao + "Config");
+    });
+});
+
+/* ==========================================================
+                DADOS JAVA SCRIPT
+========================================================== */
+
+document.addEventListener("change", (e) => {
+
+    if (e.target.classList.contains("input-arquivo")) {
+
+        const linha = e.target.closest(".linha-dados");
+        const nomeArquivo = linha.querySelector(".nome-arquivo");
+        const btnAtualizar = linha.querySelector(".btn-atualizar");
+
+        if (e.target.files.length > 0) {
+            nomeArquivo.textContent = e.target.files[0].name;
+            btnAtualizar.disabled = false;
+        }
 
     }
 
-    else{
+});
 
-        btnTema.textContent = "☀️";
-        localStorage.setItem("tema","claro");
+/* ==========================================================
+            MÓDULO: EDITAR MODELO DE FORMULÁRIOS
+========================================================== */
 
+document.addEventListener("click", (e) => {
+
+    // Alternar entre as abas "vigentes" / "arquivadas"
+    const aba = e.target.closest(".aba-formulario");
+    if (aba) {
+        document.querySelectorAll(".aba-formulario").forEach(a => a.classList.remove("ativa"));
+        aba.classList.add("ativa");
     }
 
-}
-
-
-/* ==========================================================
-                CARREGAR TEMA SALVO
-========================================================== */
-
-/*
-    Mantém o tema escolhido pelo usuário.
-*/
-
-function carregarTema(){
-
-    const tema = localStorage.getItem("tema");
-
-    if(tema === "escuro"){
-
-        document.body.classList.add("modo-escuro");
-        btnTema.textContent = "🌙";
-
+    // Ligar/desligar o status (check verde) de uma pergunta
+    const botaoStatus = e.target.closest(".btn-status-pergunta");
+    if (botaoStatus) {
+        botaoStatus.classList.toggle("ativo");
     }
 
-}
-
-
-/* ==========================================================
-            MENU DE CONFIGURAÇÕES
-========================================================== */
-
-function abrirConta(){
-
-    alert("Configurações da Conta.");
-
-}
-
-
-function abrirPrivacidade(){
-
-    alert("Configurações de Privacidade.");
-
-}
-
-
-function abrirAparencia(){
-
-    alert("Configurações de Aparência.");
-
-}
-
-
-function abrirNotificacoes(){
-
-    alert("Configurações de Notificações.");
-
-}
-
-
-function abrirAjuda(){
-
-    alert("Central de Ajuda.");
-
-}
-
-
-/* ==========================================================
-                    PESQUISA
-========================================================== */
-
-/*
-    Apenas demonstra o funcionamento.
-*/
-
-inputPesquisa.addEventListener("keyup", function(){
-    console.log("Pesquisando:", inputPesquisa.value);
+    // Excluir o card da pergunta
+    const botaoExcluir = e.target.closest(".btn-excluir-pergunta");
+    if (botaoExcluir) {
+        botaoExcluir.closest(".card-pergunta").remove();
+    }
 
 });
-
-
-/* ==========================================================
-                    EVENTOS
-========================================================== */
-
-btnVoltar.addEventListener("click", voltarPagina);
-btnTema.addEventListener("click", alternarTema);
-btnConta.addEventListener("click", function(event){
-    event.preventDefault();
-    abrirConta();
-
-});
-
-btnPrivacidade.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirPrivacidade();
-
-});
-
-btnAparencia.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirAparencia();
-
-});
-
-btnNotificacoes.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirNotificacoes();
-
-});
-
-btnAjuda.addEventListener("click", function(event){
-
-    event.preventDefault();
-    abrirAjuda();
-
-});
-
-
-/* ==========================================================
-                INICIALIZAÇÃO
-========================================================== */
-
-carregarTema();
-console.log("Tela de Configurações carregada com sucesso.");

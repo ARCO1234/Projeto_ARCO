@@ -1,0 +1,72 @@
+<div class="secao-formularios">
+
+    <div class="abas-formularios">
+
+        <button class="aba-formulario ativa" data-aba="vigentes">
+            <svg viewBox="0 0 24 24" class="icone-aba" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Perguntas vigentes
+        </button>
+
+        <button class="aba-formulario" data-aba="arquivadas">
+            Perguntas arquivadas
+            
+        </button>
+
+    </div>
+
+    <div class="acoes-formularios">
+        <button class="btn-adicionar-pergunta">
+            <img src="{{ url_for('static', filename='icons/X-P.png') }}" alt="" class="icone-btn">
+            Adicionar pergunta
+        </button>
+    </div>
+
+    <div class="lista-perguntas">
+
+        <article class="card-pergunta">
+
+            <div class="linha-superior-pergunta">
+
+                <div class="texto-pergunta-container">
+                    <span class="rotulo-pergunta">Pergunta 1</span>
+                    <p class="texto-pergunta">Meus alunos interagem entre si em sala de aula.</p>
+                </div>
+
+                <button class="btn-status-pergunta ativo" title="Pergunta ativa">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </button>
+
+            </div>
+
+            <div class="linha-inferior-pergunta">
+
+                <button class="btn-arquivar-pergunta" title="Arquivar">
+                    <svg viewBox="0 0 24 24" class="icone-acao-pergunta" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 8v13H3V8"></path>
+                        <path d="M1 3h22v5H1z"></path>
+                        <path d="M10 12h4"></path>
+                    </svg>
+                </button>
+
+                <button class="btn-excluir-pergunta" title="Excluir">
+                    <svg viewBox="0 0 24 24" class="icone-acao-pergunta" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                    </svg>
+                </button>
+
+            </div>
+
+        </article>
+
+        <!-- repete o mesmo bloco <article class="card-pergunta"> pra cada pergunta -->
+
+    </div>
+
+</div>
