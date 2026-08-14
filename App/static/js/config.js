@@ -5,7 +5,6 @@
 const areaConfig = document.getElementById("area-config");
 const botoes = document.querySelectorAll(".item-config");
 
-    const arquivo = arquivosSecao[nome];
 
 /* ==========================================================
         FUNÇÃO QUE CARREGA O HTML DA SEÇÃO
@@ -29,8 +28,6 @@ async function carregarSecao(nomeArquivo){
     }
 }
 
-// Delegação de evento: escuta clique em qualquer botão do menu-config
-document.addEventListener('click', function (e) {
 
 /* ==========================================================
         CARREGA A TELA DE CONTA AO ABRIR A PÁGINA

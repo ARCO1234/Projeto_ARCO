@@ -366,6 +366,40 @@
     width:20px;
     height:20px;
 
+}
+
+/* ==========================================================
+                DADOS CSS - VISUAL DO CANVA
+========================================================== */
+
+.secao-dados{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.linha-dados{
+    border:1px solid #9aa8c7;
+    border-radius:16px;
+    padding:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+
+    min-height:118px;
+    background:#fff;
+}
+
+.cabecalho-linha-dados{
+    width:370px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:12px;
+
     margin:0;
 }
 

@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login </title>
-    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
-    <link rel="stylesheet" href="../static/css/novasenha.css">
+    <title> Senha Alterada </title>
+    <link rel="icon" href="{{ url_for('static', filename='img/capelo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nvsenha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boasenha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sucessosenha.css') }}">
 </head>
 <body>
     <div class="fundologin">
         <div class="divilogo">
-            <img src="../static/img/arco.png" alt="Logo do ARCO" class="logo">
+            <img src="/static/img/arco.png" alt="Logo do ARCO" class="logo">
         </div>
         <main class="divimeio">
-            
             <div class="caixabranca">
                 <div class="icone-sucesso">
                     <span class="check">✓</span>
@@ -22,15 +23,14 @@
                    Senha alterada com sucesso!
                 </h1>
                 <div class="botoes">
-                <button class="botaovoltar"> VOLTAR </button>
-
-                
+                    <button class="botaovoltar" id="btnVoltar"> VOLTAR </button>
+                </div>
             </div>
         </main>
         <div class="divibaixo">
 
         </div>
     </div>
-    <script src="../static/js/novasenha.js"></script>
+    <script src="/static/js/boasenha.js"></script>
 </body>
 </html>

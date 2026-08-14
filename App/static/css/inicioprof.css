@@ -16,56 +16,13 @@ body{
     flex-direction:column;
 }
 
-/*================== TOPO ==================*/
-
-.faixazul{
-    width:100%;
-    height:70px;
-    background:linear-gradient(90deg,#0b1d6b,#1d4ed8);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 40px;
-}
-
-.logo{
-    height:55px;
-}
-
-.funcionalidades{
-    display:flex;
-    align-items:center;
-    gap:28px;
-}
-
-.funcionalidades a{
-    color:white;
-    text-decoration:none;
-    font-size:16px;
-    font-weight:500;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    transition:.2s;
-    padding:6px 12px;
-    border-radius:20px;
-}
-
-.funcionalidades a:hover{
-    background:rgba(255,255,255,0.15);
-}
-
-.funcionalidades a img{
-    width:20px;
-    height:20px;
-    filter:brightness(0) invert(1); /* deixa os ícones brancos */
-}
-
 /*================== CONTEÚDO ==================*/
+/* Compensa a altura do CardHeader, que é fixed (10dvh) */
 
 .conteudo{
     width:100%;
     padding:35px 45px;
+    margin-top:10dvh;
 }
 
 /*================== TÍTULO ==================*/
@@ -93,7 +50,7 @@ body{
 
 .salas{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
     gap:28px;
 }
 
@@ -105,7 +62,7 @@ body{
     border-radius:16px;
     overflow:hidden;
     cursor:pointer;
-    transition:.25s;
+    transition:transform .15s ease, box-shadow .15s ease;
     box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
@@ -115,7 +72,6 @@ body{
 }
 
 .card-header{
-    height:110px;
     padding:20px 22px;
     color:white;
     display:flex;
@@ -137,12 +93,11 @@ body{
 }
 
 .card-footer{
-    height:70px;
     display:flex;
-    justify-content:flex-end;
     align-items:center;
+    justify-content:flex-end;
     gap:16px;
-    padding:0 22px;
+    padding:14px 22px;
     background:#fff;
 }
 
@@ -151,20 +106,29 @@ body{
     border:none;
     cursor:pointer;
     padding:6px;
+    margin:0;
     border-radius:8px;
-    transition:.2s;
+    line-height:0;
+    transition:background .2s ease;
 }
 
 .icon-btn:hover{
     background:#f0f0f0;
 }
 
+.icon-btn:focus-visible{
+    outline:2px solid #1d4ed8;
+    outline-offset:2px;
+}
+
 .icon-btn img{
     width:28px;
     height:28px;
+    display:block;
+    pointer-events:none;
 }
 
-/*================== CORES DOS CARDS ==================*/
+/*================== CORES DOS CARDS (ciclo de 3) ==================*/
 
 .card:nth-child(3n+1) .card-header{
     background:linear-gradient(90deg,#ff3048,#a100ff);
