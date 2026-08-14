@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Login </title>
-    <link rel="icon" href="/static/img/capelo.png" type="image/png">
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="icon" href="{{ url_for('static', filename='img/capelo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
 
     <div class="fundologin">
         <div class="divilogo">
-            <img src="{{ url_for('static', filename='img/arco.png') }}"
-     alt="Logo do ARCO"
-     class="logo">
+            <img src="{{ url_for('static', filename='img/capelo.png') }}" alt="Logo do ARCO" class="logo">
         </div>
         <main class="divimeio">
             <div class="caixabranca">
                 <h1>
-                    Bem vindo ao ARCO!
+                    Bem vindo ao ARCO
                 </h1>
                 <h2>
                     Realize seu login
@@ -27,8 +25,8 @@
                 <input type="text" placeholder="Email" class="entradaemail" id="emaillogin">
                 <label for="senhalogin">Senha:</label>
                 <input type="password" placeholder="Senha" class="entradasenha" id="senhalogin">
-                <a class="esqueci" href="/recsenha-page"> esqueci a senha </a>
-                <button class="botaoentrar" id="btnEntrar"> Entrar </button>
+                <a class="esqueci" href="../templates/VERIFICAÇÃO.html"> Esqueci a senha </a>
+                <button class="botaoentrar"> Entrar </button>
             </div>
         </main>
         <div class="divibaixo">
@@ -36,6 +34,6 @@
         </div>
     </div>
 
-    <script src="/static/js/login.js"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>

@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Nova Senha </title>
-    <link rel="icon" href="{{ url_for('static', filename='icons/capelo-A-1.png') }}" type="image/png">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/nvsenha.css') }}">
+    <title> Login </title>
+    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
+    <link rel="stylesheet" href="../static/css/novasenha.css">
 </head>
 <body>
     <div class="fundologin">
         <div class="divilogo">
-            <img src="{{ url_for('static', filename='img/arco.png') }}" alt="Logo do ARCO" class="logo">
+            <img src="../static/img/arco.png" alt="Logo do ARCO" class="logo">
         </div>
         <main class="divimeio">
             <div class="caixabranca">
                 <h1>
-                    Falta pouco
+                    Falta pouco!
                 </h1>
                 <h2>
                     vamos refazer sua senha
                 </h2>
 
-                <label for="senhanova">Nova Senha</label>
-                <input type="password" placeholder="Nova Senha" class="novasenha" id="senhanova">
-                <label for="confirmasenha">Confirme a Senha</label>
-                <input type="password" placeholder="Confirme a Senha" class="entradasenha" id="confirmasenha">
+                <label for="senhanova">Nova Senha:</label>
+                <input type="text" placeholder="Nova Senha" class="novasenha" id="senhanova">
+                <label for="confirmasenha">Confirme a Senha:</label>
+                <input type="text" placeholder="Confirme a Senha" class="entradasenha" id="confirmasenha">
 
                 <ul class="lista-requisitos">
                     <li id="req-min">mínimo 8 dígitos</li>
@@ -35,16 +35,19 @@
                     <li id="req-numero">um número</li>
                 </ul>
 
+
+                
                 <div class="botoes">
-                    <button class="botaovoltar" id="btnVoltar"> VOLTAR </button>
-                    <button class="botaoproximo" id="btnProximo" disabled> PROXIMO </button>
+                <button class="botaovoltar"> VOLTAR </button>
+                <button class="botaoproximo"> PROXIMO </button>
                 </div>
+                
             </div>
         </main>
         <div class="divibaixo">
 
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/nvsenha.js') }}"></script>
+    <script src="../static/js/novasenha.js"></script>
 </body>
 </html>
