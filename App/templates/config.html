@@ -3,199 +3,81 @@
 
 <head>
 
-    <!-- ==================================================
-                        CONFIGURAÇÕES
-    =================================================== -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCO - Configurações</title>
-    <link rel="stylesheet" href="/static/css/config.css">
-    <link rel="shortcut icon"
-          href="/static/img/arco.png"
-          type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/config.css">
+    <link rel="icon" href="../static/icons/capelo-A-1.png" type="image/png">
 
 </head>
 
 <body>
 
     <!-- ==================================================
-                        CABEÇALHO
+                        AQUI É O CABEÇALHO
     =================================================== -->
-
-    <header class="cabecalho">
-
-        <!-- Lado esquerdo -->
-
-        <div class="cabecalho-esquerda">
-
-            <button
-                class="btn-voltar"
-                id="btnVoltar">
-
-                ← Voltar
-
-            </button>
-
-        </div>
-
-        <!-- Lado direito -->
-
-        <div class="cabecalho-direita">
-
-            <button
-                class="btn-tema"
-                id="btnTema">
-
-                ☀️
-
-            </button>
-
-            <img
-                src="/static/img/arco.png"
-                alt="Logo ARCO"
-                class="logo">
-
-        </div>
-
-    </header>
 
 
     <!-- ==================================================
-                    CONTEÚDO PRINCIPAL
+                    PÁGINA DE CONFIGURAÇÕES
     =================================================== -->
 
-    <main class="conteudo">
-
+    <div class="pagina-config">
 
         <!-- =============================================
-                MENU DAS CONFIGURAÇÕES
+                MENU LATERAL DAS SEÇÕES
         ============================================== -->
 
         <aside class="menu-config">
 
-            <h2>
+            <h1 class="titulo-config">Configurações</h1>
 
-                Configurações
+            <button class="item-config ativo" data-secao="conta">
+                <img src="{{ url_for('static', filename='icons/PerfilIndividual-P.png') }}" alt="perfil" class="icone-btn">
+                Configurações de conta
+            </button>
 
-            </h2>
+            <button class="item-config" data-secao="privacidade">
+                <img src="{{ url_for('static', filename='icons/capelo-A-1.png') }}" alt="capelo-a" class="icone-item-btn">
+                Privacidade
+            </button>
 
-            <a href="#" id="btnConta">
+            <button class="item-config" data-secao="sobre">
+                   <img src="{{ url_for('static', filename='icons/GODÊ-P.png') }}" alt="godebtn" class="icone-btn">
+                Sobre o ARCO
+            </button>
 
-                👤 Conta
+            <button class="item-config" data-secao="dados">
+                 <img src="{{ url_for('static', filename='icons/atualizar-p.png') }}" alt="atualizarbtn" class="icone-btn">
+                Atualizar dados
+            </button>
 
-            </a>
-
-            <a href="#" id="btnPrivacidade">
-
-                🔒 Privacidade
-
-            </a>
-
-            <a href="#" id="btnAparencia">
-
-                🎨 Aparência
-
-            </a>
-
-            <a href="#" id="btnNotificacoes">
-
-                🔔 Notificações
-
-            </a>
-
-            <a href="#" id="btnAjuda">
-
-                ❓ Ajuda
-
-            </a>
+            <button class="item-config" data-secao="formulario">
+                    <img src="{{ url_for('static', filename='icons/doc-P.png') }}" alt="formulario" class="icone-btn">
+                Editar modelo de formulários
+            </button>
 
         </aside>
 
 
         <!-- =============================================
-                PAINEL PRINCIPAL
+                ÁREA ONDE A SEÇÃO ESCOLHIDA APARECE
         ============================================== -->
 
-        <section class="painel-config">
+        <main class="area-config" id="area-config">
 
+            <!-- o conteúdo de cada seção entra aqui via fetch -->
 
-            <!-- Pesquisa -->
+        </main>
 
-            <div class="barra-pesquisa">
-
-                <input
-                    type="text"
-                    id="inputPesquisa"
-                    class="input-pesquisa"
-                    placeholder="🔍 Pesquisar configurações">
-
-            </div>
-
-
-            <!-- Mais pesquisados -->
-
-            <section class="mais-pesquisados">
-
-                <h2>
-
-                    Mais Pesquisados
-
-                </h2>
-
-                <div class="lista-opcoes">
-
-                    <article class="opcao-config">
-
-                        Alterar senha
-
-                    </article>
-
-                    <article class="opcao-config">
-
-                        Trocar foto de perfil
-
-                    </article>
-
-                    <article class="opcao-config">
-
-                        Alterar tema
-
-                    </article>
-
-                    <article class="opcao-config">
-
-                        Privacidade da conta
-
-                    </article>
-
-                    <article class="opcao-config">
-
-                        Notificações
-
-                    </article>
-
-                    <article class="opcao-config">
-
-                        Idioma
-
-                    </article>
-
-                </div>
-
-            </section>
-
-        </section>
-
-    </main>
+    </div>
 
 
     <!-- ==================================================
                         JAVASCRIPT
     =================================================== -->
 
-    <script src="/static/js/auth-guard.js"></script>
-    <script src="/static/js/config.js"></script>
+    <script src="../static/js/config.js"></script>
 
 </body>
 

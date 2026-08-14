@@ -1,0 +1,63 @@
+<div class="topo-area-config">
+    <input type="text" class="busca-config" placeholder="Pesquisar">
+</div>
+
+<h3 class="subtitulo-config">Mais pesquisados</h3>
+
+
+<!-- =============================================
+            SEÇÃO "MINHAS CONTAS"
+============================================== -->
+
+<div class="cabecalho-secao-contas">
+    <h3 class="subtitulo-config">Minhas contas</h3>
+    <button class="btn-adicionar-conta">
+         <img src="{{ url_for('static', filename='icons/X-P.png') }}" alt="" class="icone-btn">
+        Adicionar conta
+    </button>
+</div>
+
+<div class="card-conta">
+
+    <div class="linha-superior-conta">
+
+        <div class="avatar-conta">
+            <!-- back-end: trocar por <img src="{{ conta.foto_url }}"> -->
+            <svg viewBox="0 0 24 24" class="icone-avatar" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <div class="info-conta">
+
+            <h4 class="nome-conta">Billie Jean</h4>
+            <!-- back-end: {{ conta.nome }} -->
+
+            <p class="email-conta">BillieJean@naoeminha.namorada</p>
+            <!-- back-end: {{ conta.email }} -->
+
+            <span class="cargo-conta">Professor</span>
+            <!-- back-end: {{ conta.cargo }} -->
+
+        </div>
+
+    </div>
+
+    <div class="linha-inferior-conta">
+
+        <a href="#" class="link-info-conta">
+            <svg viewBox="0 0 24 24" class="icone-link-info" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Informações da conta
+        </a>
+
+        <button class="btn-sair-conta" title="Sair">
+            <img src="{{ url_for('static', filename='icons/SAIDA-P.png') }}" alt="" class="icone-btn">
+        </button>
+
+    </div>
+
+</div>
